@@ -249,3 +249,10 @@ export const setSearchTerm = (
 export const setSelectedProduct = (object: ICard): ProductsAction => {
   return { type: ProductsActionTypes.SET_SELECTED_PRODUCT, payload: object };
 };
+
+export const removeAllProductsFromCart = (): ProductsAction => {
+  return {
+    type: ProductsActionTypes.REMOVE_ALL_PRODUCTS_FROM_CART,
+    payload: [],
+  };
+};

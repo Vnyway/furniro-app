@@ -17,11 +17,9 @@ export interface IUser {
   firstName: string;
   lastName: string;
   companyName: string;
-  countryRegion: string;
-  streetAddress: string;
-  townCity: string;
-  province: string;
-  zipCode: string;
+  country: string;
+  state: string;
+  city: string;
   phone: string;
   emailAddress: string;
   additionalInformation: string;
@@ -75,6 +73,7 @@ export enum ProductsActionTypes {
   FETCH_MORE_PRODUCTS_SUCCESS = "FETCH_MORE_PRODUCTS_SUCCESS",
   FETCH_MORE_PRODUCTS_RELATED_SUCCESS = "FETCH_MORE_PRODUCTS_RELATED_SUCCESS",
   SET_SELECTED_PRODUCT = "SET_SELECTED_PRODUCT",
+  REMOVE_ALL_PRODUCTS_FROM_CART = "REMOVE_ALL_PRODUCTS_FROM_CART",
 }
 
 export enum CustomersActionTypes {
@@ -160,6 +159,11 @@ interface SetSelectedProductAction {
   payload: ICard;
 }
 
+interface RemoveAllProductsFromCartAction {
+  type: ProductsActionTypes.REMOVE_ALL_PRODUCTS_FROM_CART;
+  payload: [];
+}
+
 export type ProductsAction =
   | SetInitialStateHomeAction
   | SetInitialStateShopAction
@@ -176,7 +180,8 @@ export type ProductsAction =
   | SetProductsToCartAction
   | SetProductsToComparedAction
   | SetSearchTermAction
-  | SetSelectedProductAction;
+  | SetSelectedProductAction
+  | RemoveAllProductsFromCartAction;
 
 interface SetUserToCustomersAction {
   type: CustomersActionTypes.SET_USER_TO_CUSTOMERS;

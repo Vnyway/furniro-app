@@ -142,6 +142,8 @@ export const productsReducer = (
       return { ...state, pageShop: 1, searchTerm: action.payload };
     case ProductsActionTypes.SET_SELECTED_PRODUCT:
       return { ...state, selectedProduct: action.payload };
+    case ProductsActionTypes.REMOVE_ALL_PRODUCTS_FROM_CART:
+      return { ...state, boughtProducts: action.payload };
     default:
       return state;
   }

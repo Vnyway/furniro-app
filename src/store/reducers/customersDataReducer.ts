@@ -14,7 +14,10 @@ export const customersReducer = (
 ) => {
   switch (action.type) {
     case CustomersActionTypes.SET_USER_TO_CUSTOMERS:
-      return { ...state, customersData: action.payload };
+      return {
+        ...state,
+        customersData: [...state.customersData, action.payload],
+      };
     default:
       return state;
   }
