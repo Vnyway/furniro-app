@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Contact from "./components/pages/Contact";
-import About from "./components/pages/About";
 import Shop from "./components/pages/Shop";
 import Footer from "./components/Footer";
 import Product from "./components/product-page-components/Product";
@@ -18,7 +17,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/comparison" element={<Comparison />} />

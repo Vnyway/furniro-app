@@ -27,6 +27,13 @@ export interface IUser {
   products: ICard[];
 }
 
+export interface IComment {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export enum SortingTypes {
   DEFAULT = "DEFAULT",
   PRICE = "PRICE",
@@ -56,6 +63,10 @@ export interface CustomersState {
   customersData: IUser[];
 }
 
+export interface CommentsState {
+  commentatorsData: IComment[];
+}
+
 export enum ProductsActionTypes {
   SET_INITIAL_STATE_HOME = "SET_INITIAL_STATE_HOME",
   SET_INITIAL_STATE_SHOP = "SET_INITIAL_STATE_SHOP",
@@ -78,6 +89,10 @@ export enum ProductsActionTypes {
 
 export enum CustomersActionTypes {
   SET_USER_TO_CUSTOMERS = "SET_USER_TO_CUSTOMERS",
+}
+
+export enum CommentsActionTypes {
+  SET_COMMENT_TO_COMMENTATORS_DATA = "SET_COMMENT_TO_COMMENTATORS_DATA",
 }
 
 interface SetInitialStateHomeAction {
@@ -164,6 +179,11 @@ interface RemoveAllProductsFromCartAction {
   payload: [];
 }
 
+interface SetCommentToCommentatorsDataAction {
+  type: CommentsActionTypes.SET_COMMENT_TO_COMMENTATORS_DATA;
+  payload: IComment;
+}
+
 export type ProductsAction =
   | SetInitialStateHomeAction
   | SetInitialStateShopAction
@@ -189,3 +209,5 @@ interface SetUserToCustomersAction {
 }
 
 export type CustomersAction = SetUserToCustomersAction;
+
+export type CommentsAction = SetCommentToCommentatorsDataAction;

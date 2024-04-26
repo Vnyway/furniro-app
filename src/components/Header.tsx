@@ -146,15 +146,11 @@ const Header: FC = () => {
               <Link to="/shop">Shop</Link>
             </li>
             <li className="font-poppins font-medium text-[16px]">
-              <Link to="/about">About</Link>
-            </li>
-            <li className="font-poppins font-medium text-[16px]">
               <Link to="/contact">Contact</Link>
             </li>
           </ul>
           <div className="flex space-x-[30px] items-center">
-            <img className="w-[28px]" src={person} alt="person-icon" />
-            <form action="" className="flex">
+            <form className="flex">
               <input
                 ref={inputRef}
                 onChange={setSearchTerm}
@@ -175,7 +171,6 @@ const Header: FC = () => {
                 />
               </button>
             </form>
-            <img className="w-[28px]" src={heart} alt="heart-icon" />
             <div
               onClick={() => cartHandler()}
               className="relative size-[28px] cursor-pointer">
