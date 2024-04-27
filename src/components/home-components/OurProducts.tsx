@@ -16,7 +16,7 @@ const OurProducts: React.FC = () => {
 
   return (
     <div className="mx-0 mt-[40px] flex flex-col items-center">
-      <h2 className="font-poppins font-bold text-[40px] text-[#3A3A3A] text-center mb-[20px]">
+      <h2 className="font-poppins font-bold text-[32px] md:text-[40px] text-[#3A3A3A] text-center mb-[20px]">
         Our Products
       </h2>
       {!error ? (
@@ -33,7 +33,7 @@ const OurProducts: React.FC = () => {
       )}
       {!searchTerm && (
         <button
-          className="border-[#B88E2F] border-[1px] text-[#B88E2F] py-[10px] px-[74px] font-poppins text-[16px] font-semibold mt-[30px]"
+          className="border-[#B88E2F] border-[1px] text-[#B88E2F] py-[7px] md:py-[10px] px-[60px] md:px-[74px] font-poppins text-[14px] md:text-[16px] font-semibold mt-[30px]"
           onClick={() => fetchMoreCards(pageHome, 8)}>
           Show More
         </button>

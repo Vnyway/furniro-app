@@ -72,8 +72,8 @@ const CheckoutForm: React.FC = () => {
   const { register, formState, handleSubmit, reset } = form;
   const { errors, isSubmitSuccessful } = formState;
 
-  const onSubmit = (data: IUser) => {
-    setUserToCustomers(data);
+  const onSubmit = (user: IUser) => {
+    setUserToCustomers(user);
   };
 
   useEffect(() => {

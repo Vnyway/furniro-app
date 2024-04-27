@@ -10,11 +10,18 @@ import closeCartImg from "../images/close-cart-icon.png";
 import deleteProductImg from "../images/delete-product.png";
 import { useActions } from "../hooks/useActions";
 import { ICard } from "../types/types";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Header: FC = () => {
   const { boughtProducts } = useTypedSelector((state) => state.products);
   const [cartOpened, setCartOpened] = useState<boolean>(false);
   const [searchOpened, setSearchOpened] = useState<boolean>(false);
+  const [menuOpened, setMenuOpened] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setMenuOpened(!menuOpened);
+  };
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const cartHandler = () => {
@@ -52,8 +59,13 @@ const Header: FC = () => {
 
   return (
     <>
-      {cartOpened && (
-        <div className="absolute top-0 right-0 w-[417px] h-[746px] border-[1px] border-black bg-[#FFFFFF] px-[30px] py-[30px] z-10">
+      <header className="overflow-x-hidden container mx-auto w-full text-nowrap bg-white h-20 text-base 8xl:t4xt-lg">
+        <div
+          className={
+            !cartOpened
+              ? "hidden absolute z-50 top-0 right-0 w-[300px] h-[746px] bg-white translate-x-[300px] ease-in-out duration-500 border-black border-[1px] px-[30px] py-[30px]"
+              : "block absolute z-50 top-0 right-0 w-[417px] h-[746px] bg-white ease-in-out duration-500 border-black border-[1px] px-[30px] py-[30px]"
+          }>
           <div className="flex justify-between items-center pb-[30px] border-b-[1px] border-b-[#D9D9D9]">
             <h2 className="font-poppins font-semibold text-[#000000] text-[24px]">
               Shopping Cart
@@ -132,13 +144,11 @@ const Header: FC = () => {
             </Link>
           </div>
         </div>
-      )}
-      <div className="container mx-auto h-20">
         <div className="flex py-5 justify-between items-center">
           <Link to="/" className="w-[150px]">
             <img src={logo} alt="logo" />
           </Link>
-          <ul className="flex space-x-[100px] flex-nowrap">
+          <ul className="hidden md:flex space-x-[100px] flex-nowrap">
             <li className="font-poppins font-medium text-[16px]">
               <Link to="/">Home</Link>
             </li>
@@ -183,9 +193,41 @@ const Header: FC = () => {
                 </div>
               )}
             </div>
+            {!menuOpened ? (
+              <AiOutlineMenu
+                className="block md:hidden size-[20px] cursor-pointer"
+                onClick={handleClick}
+              />
+            ) : (
+              <AiOutlineClose
+                className="block md:hidden size-[20px] cursor-pointer"
+                onClick={handleClick}
+              />
+            )}
           </div>
         </div>
-      </div>
+        <ul
+          className={
+            !menuOpened
+              ? "block md:hidden absolute z-50 top-0 left-0 w-[80px] bg-white translate-x-[-200px] ease-in-out duration-500 border-r-2"
+              : "block md:hidden absolute z-50 top-0 left-0 w-[200px] bg-white ease-in-out duration-500 border-r-2"
+          }>
+          <li className="border-b-2 h-[61px] pl-[10px]">
+            <Link to="/">
+              <img src={logo} className="mt-[20px] ml-2 pb-[31px] w-[150px]" />
+            </Link>
+          </li>
+          <li className="font-basic border-b-2 py-3 pr-20 pl-[20px] text-left ">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="font-basic border-b-2 py-3 pr-20 pl-[20px] text-left">
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li className="font-basic border-b-2 py-3 pr-20 pl-[20px] text-left">
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </header>
     </>
   );
 };

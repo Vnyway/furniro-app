@@ -7,7 +7,7 @@ interface ListProps<T> {
 
 export default function List<T>({ items, renderItem }: ListProps<T>) {
   return (
-    <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
       {items.map(renderItem)}
     </div>
   );

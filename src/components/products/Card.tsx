@@ -59,15 +59,15 @@ const Card: FC<CardProps> = ({ card }) => {
           </div>
         </>
       )}
-      <div className="flex flex-col h-auto w-[285px]">
+      <div className="flex flex-col h-auto w-[240px] md:w-[285px]">
         <div
-          className="relative h-[301px] bg-cover"
+          className="relative h-[220px] md:h-[301px] bg-cover"
           style={{ backgroundImage: `url(${card.image})` }}>
           {card.label && (
             <div
               className={
                 card.label === "New"
-                  ? "absolute top-[25px] right-[25px] size-[48px] rounded-[50%] bg-[#2EC1AC]"
+                  ? "absolute top-[25px] right-[25px] md:right-[25px] size-[48px] rounded-[50%] bg-[#2EC1AC]"
                   : "absolute top-[25px] right-[25px] size-[48px] rounded-[50%] bg-[#E97171]"
               }>
               <p
@@ -81,19 +81,19 @@ const Card: FC<CardProps> = ({ card }) => {
             </div>
           )}
         </div>
-        <div className="px-[20px] pb-[30px] pt-[20px] bg-[#F4F5F7]">
-          <h3 className="text-products text-[24px] font-poppins font-semibold mb-[5px]">
+        <div className="p-[15px] md:p-[20px] bg-[#F4F5F7]">
+          <h3 className="text-products text-[20px] md:text-[24px] font-poppins font-semibold mb-[5px]">
             {card.name}
           </h3>
-          <p className="text-customGray font-poppins font-medium text-[16px] mb-[7px]">
+          <p className="text-customGray font-poppins font-medium text-[12px] md:text-[16px] mb-[7px]">
             {card.description}
           </p>
           <div className="flex justify-between items-center">
-            <h3 className="font-poppins text-products text-[20px] font-semibold ">
+            <h3 className="font-poppins text-products text-[16px] md:text-[20px] font-semibold ">
               Rp {card.currentPrice.toLocaleString("id-ID")}
             </h3>
             {card.currentPrice !== card.prevPrice && (
-              <p className="font-poppins font-medium text-[#B0B0B0] text-[16px] line-through">
+              <p className="font-poppins font-medium text-[#B0B0B0] text-[12px] md:text-[16px] line-through">
                 Rp {card.prevPrice.toLocaleString("id-ID")}
               </p>
             )}

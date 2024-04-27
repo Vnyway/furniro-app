@@ -14,16 +14,16 @@ const BeautifulRooms: FC = () => {
     }
   };
   return (
-    <div className="flex items-center overflow-x-hidden mt-[50px] py-[30px] pl-[300px] bg-[#FCF8F3]">
-      <div className="w-[600px]">
-        <h2 className="font-poppins font-bold text-products text-[40px] leading-[120%] mb-[15px]">
-          50+ Beautiful rooms <br /> inspiration
+    <div className="flex items-center overflow-x-hidden mt-[50px] py-[30px] pl-[20px] md:pl-[100px] 2xl:pl-[300px] bg-[#FCF8F3]">
+      <div className="hidden lg:block w-[600px]">
+        <h2 className="font-poppins font-bold text-products text-[32px] md:text-[40px] leading-[120%] mb-[15px]">
+          Beautiful rooms <br /> inspiration
         </h2>
-        <p className="font-poppins font-medium text-[#616161] text-[16px] mb-[20px]">
+        <p className="font-poppins font-medium text-[#616161] text-[12px] md:text-[16px] mb-[20px]">
           Our designer already made a lot of beautiful <br /> prototipe of rooms
           that inspire you
         </p>
-        <button className="px-[36px] py-[12px] bg-customBrown text-white font-poppins font-semibold text-[16px]">
+        <button className="px-[28px] md:px-[36px] py-[8px] md:py-[12px] bg-customBrown text-white font-poppins font-semibold text-[12px] md:text-[16px]">
           Explore More
         </button>
       </div>
@@ -62,27 +62,27 @@ const BeautifulRooms: FC = () => {
         <img
           src={room === 1 || room === 3 ? innerPlaceImg : livingRoomImg}
           alt="innerPlaceImg"
-          className="w-[404px] h-[582px]"
+          className="w-[320px] md:w-[404px] h-[460px] md:h-[582px]"
         />
         <div className="flex flex-col">
           <div className="flex">
             <img
               src={room === 1 || room === 3 ? livingRoomImg : innerPlaceImg}
               alt="livingRoomImg"
-              className="w-[372px] h-[486px] ml-[20px]"
+              className="w-[300px] md:w-[372px] h-[400px] md:h-[486px] ml-[20px]"
             />
             <img
               src={room === 1 || room === 3 ? innerPlaceImg : livingRoomImg}
               alt="innerPlaceImg"
-              className="w-[372px] h-[486px] ml-[20px]"
+              className="w-[300px] md:w-[372px] h-[400px] md:h-[486px] ml-[20px]"
             />
             <img
               src={room === 1 || room === 3 ? livingRoomImg : innerPlaceImg}
               alt="livingRoomImg"
-              className="w-[372px] h-[486px] ml-[20px]"
+              className="w-[300px] md:w-[372px] h-[400px] md:h-[486px] ml-[20px]"
             />
           </div>
-          <div className="flex mb-0 ml-[30px] mt-[45px] items-center">
+          <div className="flex mb-0 ml-[30px] mt-[30px] md:mt-[45px] items-center">
             <div
               className={
                 room === 1
