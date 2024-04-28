@@ -14,8 +14,8 @@ const BeautifulRooms: FC = () => {
     }
   };
   return (
-    <div className="flex items-center overflow-x-hidden mt-[50px] py-[30px] pl-[20px] md:pl-[100px] 2xl:pl-[300px] bg-[#FCF8F3]">
-      <div className="hidden lg:block w-[600px]">
+    <div className="flex items-center overflow-x-hidden mt-[50px] py-[30px] pl-[15px] md:pl-[100px] 2xl:pl-[300px] bg-[#FCF8F3]">
+      <div className="hidden lg:block w-[600px] pr-[30px]">
         <h2 className="font-poppins font-bold text-products text-[32px] md:text-[40px] leading-[120%] mb-[15px]">
           Beautiful rooms <br /> inspiration
         </h2>
@@ -82,7 +82,7 @@ const BeautifulRooms: FC = () => {
               className="w-[300px] md:w-[372px] h-[400px] md:h-[486px] ml-[20px]"
             />
           </div>
-          <div className="flex mb-0 ml-[30px] mt-[30px] md:mt-[45px] items-center">
+          <div className="hidden md:flex mb-0 ml-[30px] mt-[30px] md:mt-[45px] items-center">
             <div
               className={
                 room === 1
