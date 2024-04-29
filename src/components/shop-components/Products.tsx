@@ -10,7 +10,6 @@ const Products: FC = () => {
   const {
     pageShop,
     error,
-    loading,
     productsShop,
     searchTerm,
     total,
@@ -35,31 +34,35 @@ const Products: FC = () => {
   return (
     <>
       <div className="bg-[#F9F1E7] font-poppins text-[#000000]">
-        <div className="container h-[100px] mx-auto flex justify-between items-center">
-          <div className="flex items-center justify-between gap-[30px]">
-            <div className="flex items-center">
-              <img src={filterIcon} alt="filterIcon" className="size-[25px]" />
-              <p className="font-normal text-[20px]">Filter</p>
+        <div className="container h-[75px] md:h-[100px] md:px-[5px] mx-auto flex justify-center md:justify-between items-center">
+          <div className="hidden md:flex items-center justify-between gap-[30px]">
+            <div className="flex items-center border-r-[#9F9F9F] border-r-[2px] pr-[30px]">
+              <img
+                src={filterIcon}
+                alt="filterIcon"
+                className="size-[18px] md:size-[25px]"
+              />
+              <p className="font-normal text-[16px] md:text-[20px]">Filter</p>
             </div>
-            <div className="border-l-[#9F9F9F] border-l-[2px] pl-[30px]">
-              <p>
+            <div>
+              <p className="text-[12px] md:text-[16px]">
                 Showing {(pageShop - 1) * limitShop + 1}–
                 {Math.min(limitShop * pageShop, total)} of {total} results
               </p>
             </div>
           </div>
           <div className="flex items-center gap-[20px]">
-            <p className="font-normal text-[20px]">Show</p>
+            <p className="font-normal text-[16px] md:text-[20px]">Show</p>
             <input
               value={limitShop.toString()}
               onChange={(e) => setProductsLimit(Number(e.target.value))}
               type="number"
-              className="size-[55px] outline-none appearance-none text-center text-[#9F9F9F] text-[20px] font-normal"
+              className="size-[36px] md:size-[55px] outline-none appearance-none text-center text-[#9F9F9F] text-[16px] md:text-[20px] font-normal"
             />
-            <p className="font-normal text-[20px]">Sort by</p>
+            <p className="font-normal text-[16px] md:text-[20px]">Sort by</p>
             <select
               onChange={(e) => setProductsSort(e.target.value as SortingTypes)}
-              className="w-[188px] h-[55px] outline-none text-left pl-[15px] text-[#9F9F9F] text-[20px] font-normal">
+              className="w-[92px] md:w-[188px] h-[36px] md:h-[55px] outline-none text-left pl-[5px] md:pl-[15px] text-[#9F9F9F] text-[16px] md:text-[20px] font-normal">
               <option value={SortingTypes.DEFAULT}>Default</option>
               <option value={SortingTypes.PRICE}>Price</option>
               <option value={SortingTypes.NAME}>Name</option>
@@ -67,7 +70,7 @@ const Products: FC = () => {
           </div>
         </div>
       </div>
-      <div className="mx-0 mt-[40px] flex flex-col items-center">
+      <div className="mx-[20px] mt-[40px] flex flex-col items-center">
         {!error ? (
           <List
             items={productsShop}
@@ -76,18 +79,14 @@ const Products: FC = () => {
         ) : (
           <h1>{error}</h1>
         )}
-
-        {loading && (
-          <div className="border-8 border-solid border-gray-300 border-t-gray-500 rounded-full w-20 h-20 animate-spin my-[30px]"></div>
-        )}
-        <div className="flex w-[700px] h-[300px] mx-auto items-center justify-center gap-[20px] font-poppins text-[20px] font-normal">
+        <div className="flex w-[300px] md:w-[700px] h-[200px] md:h-[300px] mx-auto items-center justify-center gap-[10px] md:gap-[20px] font-poppins text-[16px] md:text-[20px] font-normal">
           <button
             onClick={() => {
               setProductsPage(pageShop - 1);
             }}
             className={
               position > 0
-                ? "w-[98px] h-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                ? "w-[70px] md:w-[98px] h-[40px] md:h-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
                 : "hidden"
             }>
             Prev
@@ -101,8 +100,8 @@ const Products: FC = () => {
             className={
               pageShop ===
               (position > 0 ? pages[position - 1] : pages[position])
-                ? "size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
-                : "size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                ? "size-[40px] md:size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
+                : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
             }>
             {position > 0 ? pages[position - 1] : pages[position]}
           </button>
@@ -117,8 +116,8 @@ const Products: FC = () => {
               className={
                 pageShop ===
                 (position > 0 ? pages[position] : pages[position + 1])
-                  ? "size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
-                  : "size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                  ? "size-[40px] md:size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
+                  : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
               }>
               {position > 0 ? pages[position] : pages[position + 1]}
             </button>
@@ -135,8 +134,8 @@ const Products: FC = () => {
               className={
                 pageShop ===
                 (position > 0 ? pages[position + 1] : pages[position + 2])
-                  ? "size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
-                  : "size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                  ? "size-[40px] md:size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
+                  : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
               }>
               {position > 0 ? pages[position + 1] : pages[position + 2]}
             </button>
@@ -148,7 +147,7 @@ const Products: FC = () => {
             }}
             className={
               position < pages.length - 1
-                ? "w-[98px] h-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                ? "w-[70px] md:w-[98px] h-[40px] md:h-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
                 : "hidden"
             }>
             Next
