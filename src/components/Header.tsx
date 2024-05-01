@@ -17,6 +17,25 @@ const Header: FC = () => {
   const [cartOpened, setCartOpened] = useState<boolean>(false);
   const [searchOpened, setSearchOpened] = useState<boolean>(false);
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
+  const [placeholder, setPlaceholder] = useState<string>(
+    "Enter product's name..."
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 500) {
+        setPlaceholder("Type...");
+      } else {
+        setPlaceholder("Enter product's name...");
+      }
+    };
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleClick = () => {
     setMenuOpened(!menuOpened);
@@ -165,10 +184,10 @@ const Header: FC = () => {
                 ref={inputRef}
                 onChange={setSearchTerm}
                 type="text"
-                placeholder="Enter product's name..."
+                placeholder={placeholder}
                 className={
                   searchOpened
-                    ? "outline-none border-b-[1px] border-b-[#000000] mr-[10px]"
+                    ? "outline-none border-b-[1px] border-b-[#000000] mr-[10px] w-[48px] min-[500px]:w-[180px]"
                     : "w-0"
                 }
               />

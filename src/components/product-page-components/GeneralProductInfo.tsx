@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import starImg from "../../images/star-img.png";
 import halfStarImg from "../../images/half-star-img.png";
 import facebookImg from "../../images/share-facebook-icon.png";
@@ -6,12 +6,20 @@ import linkedinImg from "../../images/share-linked-in-image.png";
 import twitterImg from "../../images/share-twitter-image.png";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
+import { useParams } from "react-router-dom";
 
 const GeneralProductInfo: FC = () => {
+  const { productId } = useParams();
   const { selectedProduct, boughtProducts } = useTypedSelector(
     (state) => state.products
   );
-  const { setProductsToCart, setProductsToCompared } = useActions();
+  const { setProductsToCart, setProductsToCompared, setSelectedProduct } =
+    useActions();
+
+  useEffect(() => {
+    setSelectedProduct(Number(productId));
+  }, []);
+
   const [count, setCount] = useState<number>(1);
   const [selectedSize, setSelectedSize] = useState(1);
   const [selectedColor, setSelectedColor] = useState(1);
@@ -46,21 +54,20 @@ const GeneralProductInfo: FC = () => {
   return (
     selectedProduct && (
       <div className="border-b-[2px] border-b-[#D9D9D9]">
-        <div className="container mx-auto mt-[40px] flex gap-[70px]">
-          <div className="flex gap-[30px]">
-            <div>
-              <img
-                src={selectedProduct.image}
-                alt="mainImg"
-                className="w-[481px] rounded-[10px]"
-              />
-            </div>
+        <div className="container mx-auto mt-[40px] flex flex-col md:flex-row gap-[20px] md:gap-[70px] px-[20px]">
+          <div>
+            <img
+              src={selectedProduct.image}
+              alt="mainImg"
+              className="w-[300px] md:w-[481px] rounded-[10px]"
+            />
           </div>
+
           <div className="font-poppins flex flex-col">
-            <h1 className="font-normal text-[#000000] text-[42px]">
+            <h1 className="font-normal text-[#000000] text-[36px] md:text-[42px]">
               {selectedProduct.name}
             </h1>
-            <h3 className="font-medium text-customGray1 text-[24px]">
+            <h3 className="font-medium text-customGray1 text-[20px] md:text-[24px]">
               Rp {selectedProduct.currentPrice.toLocaleString("id-ID")}
             </h3>
             <div className="flex items-center my-[15px]">
@@ -69,7 +76,7 @@ const GeneralProductInfo: FC = () => {
                 {selectedProduct.rating} stars
               </div>
             </div>
-            <p className="font-normal text-[#000000] text-[13px] mb-[15px] w-[424px]">
+            <p className="font-normal text-[#000000] text-[13px] mb-[15px] md:w-[424px]">
               {selectedProduct.longerDescription}
             </p>
             <p className="font-normal text-customGray1 text-[14px] mb-[10px]">
@@ -142,9 +149,9 @@ const GeneralProductInfo: FC = () => {
                   className="cursor-pointer bg-customBrown size-[30px] rounded-full"></div>
               )}
             </div>
-            <div className="flex gap-[10px] mb-[40px]">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-[20px] md:gap-[10px] mb-[40px] text-[14px] md:text-[16px]">
               <input
-                className="outline-none w-[123px] h-[64px] border-[1px] border-customGray1 rounded-[10px] text-center"
+                className="outline-none h-[64px] border-[1px] border-customGray1 rounded-[10px] text-center"
                 value={count.toString()}
                 onChange={(e) => {
                   setCount(Number(e.target.value));
@@ -163,12 +170,12 @@ const GeneralProductInfo: FC = () => {
                         selectedProduct.count + count
                       );
                 }}
-                className="w-[215px] h-[64px] border-[1px] border-[#000000] rounded-[15px]">
+                className=" h-[64px] border-[1px] border-[#000000] rounded-[15px]">
                 Add To Cart
               </button>
               <button
                 onClick={() => setProductsToCompared(selectedProduct)}
-                className="w-[215px] h-[64px] border-[1px] border-[#000000] rounded-[15px]">
+                className=" h-[64px] border-[1px] border-[#000000] rounded-[15px]">
                 + Compare
               </button>
             </div>

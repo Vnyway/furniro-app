@@ -246,8 +246,32 @@ export const setSearchTerm = (
   };
 };
 
-export const setSelectedProduct = (object: ICard): ProductsAction => {
-  return { type: ProductsActionTypes.SET_SELECTED_PRODUCT, payload: object };
+// export const setSelectedProduct = (object: ICard): ProductsAction => {
+//   return { type: ProductsActionTypes.SET_SELECTED_PRODUCT, payload: object };
+// };
+
+export const setSelectedProduct = (id: number) => {
+  return async (dispatch: Dispatch<ProductsAction>) => {
+    try {
+      dispatch({ type: ProductsActionTypes.FETCH_PRODUCTS });
+      const response = await fetch("../../../products.json");
+      const { data, meta }: { data: ICard[]; meta: any } =
+        await response.json();
+      const item = data.find((item) => item.id === id);
+      if (item === undefined) {
+        throw new Error();
+      }
+      dispatch({
+        type: ProductsActionTypes.SET_SELECTED_PRODUCT,
+        payload: item,
+      });
+    } catch (e) {
+      dispatch({
+        type: ProductsActionTypes.FETCH_PRODUCTS_ERROR,
+        payload: "Error fetching users...",
+      });
+    }
+  };
 };
 
 export const removeAllProductsFromCart = (): ProductsAction => {

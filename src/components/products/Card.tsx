@@ -1,10 +1,7 @@
 import React, { FC, useState } from "react";
 import { ICard } from "../../types/types";
-import shareImg from "../../images/card-share.png";
 import compareImg from "../../images/card-compare.png";
-import likeImg from "../../images/card-heart.png";
 import { useActions } from "../../hooks/useActions";
-import { setSelectedProduct } from "../../store/action-creators/produtsAction";
 import { Link } from "react-router-dom";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 
@@ -35,8 +32,8 @@ const Card: FC<CardProps> = ({ card }) => {
         <>
           <div className="absolute w-full h-full bg-products opacity-70 z-10"></div>
           <Link
-            to={`/product/${selectedProduct?.id}`}
-            onClick={() => setSelectedProduct(card)}>
+            to={`/product/${card.id}`}
+            onClick={() => setSelectedProduct(card.id)}>
             <button className="border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] py-[8px] px-[30px] md:py-[10px] md:px-[60px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20">
               Add to cart
             </button>
