@@ -43,7 +43,7 @@ const GeneralComparison: React.FC = () => {
         <thead>
           <tr className="h-[250px]">
             <td className="w-[250px] pl-[40px] text-start">
-              <h1 className="text-[#000000] text-[28px] mt-[40px]">
+              <h1 className="text-[#000000] text-[22px] md:text-[28px] mt-[40px]">
                 Go to Product
                 <br />
                 page for more
@@ -51,7 +51,7 @@ const GeneralComparison: React.FC = () => {
                 Products
               </h1>
               <Link to="/shop">
-                <button className="text-[#727272] text-[20px] border-b-[2px] border-b-[#727272] mt-[15px]">
+                <button className="text-[#727272] text-[16px] md:text-[20px] border-b-[2px] border-b-[#727272] mt-[15px]">
                   View More
                 </button>
               </Link>
@@ -60,16 +60,16 @@ const GeneralComparison: React.FC = () => {
               const stars = renderStars(card);
               return (
                 <td className="pl-[40px] py-[40px]">
-                  <div className="mt-[40px] w-[300px]">
+                  <div className="md:mt-[40px] w-[300px]">
                     <img
                       src={card.image}
                       alt={card.name}
                       className="rounded-[10px] w-[200px]"
                     />
-                    <h2 className="font-medium text-[24px] mt-[10px]">
+                    <h2 className="font-medium text-[20px] md:text-[24px] mt-[10px]">
                       {card.name}
                     </h2>
-                    <h3 className="font-medium text-[18px]">
+                    <h3 className="font-medium text-[16px] md:text-[18px]">
                       Rp {card.currentPrice.toLocaleString("id-ID")}
                     </h3>
                     <div className="flex items-center gap-[10px]">
@@ -85,9 +85,9 @@ const GeneralComparison: React.FC = () => {
             <td></td>
           </tr>
         </thead>
-        <tbody className="border-t-[1px] border-b-[1px] font-normal text-[20px]">
+        <tbody className="border-t-[1px] border-b-[1px] font-normal text-[16px] md:text-[20px]">
           <tr>
-            <td className="font-medium text-[28px] w-[300px] pl-[40px] py-[30px] border-r-[1px]">
+            <td className="font-medium text-[22px] md:text-[28px] w-[300px] pl-[40px] py-[30px] border-r-[1px]">
               Properties
             </td>
             {comparedProducts.map((element) => (

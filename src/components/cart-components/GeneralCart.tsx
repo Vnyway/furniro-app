@@ -20,22 +20,22 @@ const GeneralCart = () => {
     });
   };
   return (
-    <div className="container mx-auto flex justify-between mt-[60px]">
+    <div className="container mx-auto flex flex-col lg:flex-row lg:justify-between my-[30px] md:my-[60px]">
       <table className="table-auto w-full mr-[20px]">
-        <thead className="bg-[#F9F1E7] h-[55px] py-[13px] font-medium text-[16px] w-full">
+        <thead className="bg-[#F9F1E7] h-[55px] py-[13px] font-medium text-[14px] md:text-[16px] w-full">
           <tr>
             <td className="w-auto"></td>
             <td className="w-[20%]">Product</td>
             <td className="w-[20%]">Price</td>
             <td className="w-[10%]">Quantity</td>
-            <td className="w-[30%]">Subtotal</td>
+            <td className="w-[20%]">Subtotal</td>
             <td className="w-[6%]"></td>
           </tr>
         </thead>
         <tbody>
           {boughtProducts.map((element) => {
             return (
-              <tr className="font-poppins font-normal text-[#9F9F9F] text-[16px]">
+              <tr className="font-poppins font-normal text-[#9F9F9F] text-[14px] md:text-[16px]">
                 <td className="w-[108px] py-[20px]">
                   <img
                     className="w-[108px] rounded-[10px]"
@@ -48,7 +48,7 @@ const GeneralCart = () => {
                   Rp {element.currentPrice.toLocaleString("id-ID")}
                 </td>
                 <td className="text-[#000000]">
-                  <div className="size-[30px] pt-[3px] rounded-[10px] border-[#9F9F9F] border-[1px] text-center">
+                  <div className="text-center md:text-start">
                     {element.count}
                   </div>
                 </td>
@@ -74,16 +74,16 @@ const GeneralCart = () => {
         </tbody>
       </table>
       <div
-        className="items-center bg-[#F9F1E7] font-poppins w-[390px] h-auto flex flex-col border-black border-[1px] mb-[20px]"
+        className="items-center bg-[#F9F1E7] font-poppins w-[340px] lg:w-[390px] h-auto flex flex-col border-black border-[1px] mb-[20px]"
         style={{ height: "auto" }}>
-        <h1 className="font-semibold text-[32px] text-center mt-[12px] mb-[20px]">
+        <h1 className="font-semibold text-[28px] md:text-[32px] text-center mt-[12px] mb-[20px]">
           Cart Totals
         </h1>
         <div className="flex flex-col w-[75%]">
           {boughtProducts.map((element) => (
             <div className="flex justify-between py-[15px]">
-              <p className="font-medium text-[16px]">Subtotal</p>
-              <p className="font-normal text-[16px] text-[#9F9F9F]">
+              <p className="font-medium text-[14px] md:text-[16px]">Subtotal</p>
+              <p className="font-normal text-[14px] md:text-[16px] text-[#9F9F9F]">
                 Rp{" "}
                 {(element.currentPrice * element.count).toLocaleString("id-ID")}
               </p>
@@ -91,8 +91,8 @@ const GeneralCart = () => {
           ))}
         </div>
         <div className="w-[75%] py-[10px] flex justify-between items-center">
-          <p className="font-medium text-[16px]">Total</p>
-          <p className="font-medium text-[20px] text-customBrown">
+          <p className="font-medium text-[14px] md:text-[16px]">Total</p>
+          <p className="font-medium text-[16px] md:text-[20px] text-customBrown">
             {calculateTotalPrice(boughtProducts)}
           </p>
         </div>

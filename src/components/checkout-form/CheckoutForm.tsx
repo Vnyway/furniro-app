@@ -88,21 +88,23 @@ const CheckoutForm: React.FC = () => {
   }, [isSubmitSuccessful]);
 
   return (
-    <div className="container mx-auto font-poppins font-medium text-[16px] text-[#000000] mt-[40px]">
+    <div className="container mx-auto font-poppins font-medium text-[14px] md:text-[16px] text-[#000000] my-[20px] md:my-[40px] px-[20px]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="flex justify-between gap-[70px]">
-        <div className="flex flex-col gap-[10px] mb-[50px]">
-          <h1 className="font-semibold text-[36px]">Billing details</h1>
-          <div className="flex justify-between gap-[20px]">
+        className="flex flex-col md:flex-row justify-center md:gap-[40px] lg:gap-[200px]">
+        <div className="flex flex-col gap-[10px] mb-[30px] md:max-w-[430px] lg:max-w-[600px] md:mb-[50px]">
+          <h1 className="font-semibold text-[28px] md:text-[36px]">
+            Billing details
+          </h1>
+          <div className="flex flex-col md:flex-row md:justify-between gap-[10px] md:gap-[20px]">
             <div className="flex flex-col gap-[10px]">
               <div className="flex justify-between">
                 <label htmlFor="firstName">First name</label>
                 <p className="error">{errors.firstName?.message}</p>
               </div>
               <input
-                className="outline-none h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
+                className="outline-none md:max-w-[200px] lg:max-w-[600px] h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
                 type="text"
                 id="firstName"
                 {...register("firstName", {
@@ -116,7 +118,7 @@ const CheckoutForm: React.FC = () => {
                 <p className="error">{errors.lastName?.message}</p>
               </div>
               <input
-                className="outline-none h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
+                className="outline-none md:max-w-[200px] lg:max-w-[600px] h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
                 type="text"
                 id="lastName"
                 {...register("lastName", {
@@ -278,7 +280,7 @@ const CheckoutForm: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col gap-[30px] font-poppins text-[#000000] max-w-[608px]">
-          <div className="flex justify-between font-medium text-[24px]">
+          <div className="flex justify-between font-medium text-[22px] md:text-[24px]">
             <h2>Product</h2>
             <h2>Subtotal</h2>
           </div>
@@ -287,7 +289,7 @@ const CheckoutForm: React.FC = () => {
               return (
                 <div className="flex justify-between">
                   <div className="flex gap-[10px] items-center">
-                    <p className="text-customGray1 text-[16px]">
+                    <p className="text-customGray1 text-[14px] md:text-[16px]">
                       {element.name}
                     </p>
                     <p className="text-[12px]">x</p>
@@ -304,7 +306,7 @@ const CheckoutForm: React.FC = () => {
             })}
             <div className="flex justify-between items-center mb-[20px]">
               <p className="">Total</p>
-              <p className="text-customBrown text-[24px] font-bold">
+              <p className="text-customBrown text-[20px] md:text-[24px] font-bold">
                 {calculateTotalPrice(boughtProducts)}
               </p>
             </div>
@@ -313,7 +315,7 @@ const CheckoutForm: React.FC = () => {
             <div className="flex justify-between mb-[20px]">
               <label
                 htmlFor="directBankTransfer"
-                className="font-semibold text-[20px]">
+                className="font-semibold text-[18px] md:text-[20px]">
                 Choose your payment method
               </label>
               <p className="error">{errors.directBankTransfer?.message}</p>
@@ -342,14 +344,14 @@ const CheckoutForm: React.FC = () => {
               />
               <label htmlFor="cashOnDelivery">Cash On Delivery</label>
             </div>
-            <p className="text-[16px] text-[9F9F9F] font-light">
+            <p className="text-[14px] md:text-[16px] text-[9F9F9F] font-light">
               Your personal data will be used to support your experience
               throughout this website, to manage access to your account, and for
               other purposes described in our <b>privacy policy.</b>
             </p>
           </div>
           <div className="flex justify-center">
-            <button className="px-[102px] py-[17px] border-[1px] border-[#000000] rounded-[15px]">
+            <button className="px-[102px] text-nowrap py-[17px] border-[1px] border-[#000000] rounded-[15px]">
               Place order
             </button>
           </div>
