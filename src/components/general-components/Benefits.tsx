@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React from "react";
 import trophyImg from "../../images/trophy-img.png";
 import guaranteeImg from "../../images/guarantee-img.png";
 import shippingImg from "../../images/shipping-img.png";
 import customerImg from "../../images/customer-img.png";
 
-const Benefits: FC = () => {
+const Benefits: React.FC = () => {
   return (
     <div className="bg-[#FAF3EA]">
       <div className="grid py-[60px] grid-cols-2 md:grid-cols-4 mx-8 min-[500px]:mx-16 md:mx-16 lg:mx-24 2xl:mx-80 gap-[20px] md:gap-[25px]">

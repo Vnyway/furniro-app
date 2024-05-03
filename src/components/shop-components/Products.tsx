@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useActions } from "../../hooks/useActions";
 import List from "../products/List";
 import { ICard, SortingTypes } from "../../types/types";
@@ -6,7 +6,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import Card from "../products/Card";
 import filterIcon from "../../images/filter-icon.png";
 
-const Products: FC = () => {
+const Products: React.FC = () => {
   const {
     pageShop,
     error,

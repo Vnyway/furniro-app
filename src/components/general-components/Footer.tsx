@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useActions } from "../../hooks/useActions";
+import { ISubscriber } from "../../types/types";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const Footer: React.FC = () => {
-  const form = useForm();
+  const { subscribersData } = useTypedSelector((state) => state.subscribers);
+  const form = useForm<ISubscriber>();
   const { register, formState, handleSubmit, reset } = form;
-  const { errors, isSubmitSuccessful } = formState;
+  const { addSubscriber } = useActions();
+  const { isSubmitSuccessful, isValid } = formState;
 
-  const onSubmit = () => {};
+  const onSubmit = (data: ISubscriber) => {
+    addSubscriber(data);
+  };
+
+  useEffect(() => {
+    console.log(subscribersData);
+  }, [subscribersData]);
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful]);
 
   return (
     <footer className="flex flex-col border-t-[1px] border-t-[#D9D9D9] px-[10px]">
@@ -40,7 +57,7 @@ const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className="mt-[30px] md:mt-0 flex justify-between md:block ">
+        <div className="flex justify-between md:block ">
           <h3 className="mb-[30px] text-[#9F9F9F] font-poppins font-medium text-[16px]">
             Options
           </h3>
@@ -56,17 +73,30 @@ const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className="mt-[20px] md:mt-0 flex justify-between items-center md:block">
+        <div className="flex justify-between items-center md:block">
           <h3 className="mb-[30px]  md:mt-0 text-[#9F9F9F] font-poppins font-medium text-[16px]">
             Newsletter
           </h3>
-          <form className="flex flex-col md:flex-row gap-[10px]">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col md:flex-row gap-[10px] items-end md:items-baseline">
             <input
               className="outline-none border-b-[1px] border-b-[#000000]"
               type="text"
+              id="email"
               placeholder="Enter Your Email Address"
+              {...register("email", {
+                required: { value: true, message: "Required" },
+                pattern: {
+                  value:
+                    /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
+                  message: "Invalid email",
+                },
+              })}
             />
-            <button className="w-[85px] font-poppins font-medium text-[#000000] text-[14px] border-b-[1px] border-b-[#000000]">
+            <button
+              disabled={!isValid}
+              className="w-[85px] font-poppins font-medium text-[#000000] text-[14px] border-b-[1px] border-b-[#000000]">
               SUBSCRIBE
             </button>
           </form>

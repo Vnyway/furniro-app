@@ -6,7 +6,7 @@ import { useActions } from "../../hooks/useActions";
 import { setConstantValue } from "typescript";
 import { Link } from "react-router-dom";
 
-const GeneralCart = () => {
+const GeneralCart: React.FC = () => {
   const { boughtProducts } = useTypedSelector((state) => state.products);
   const { setProductsToCart } = useActions();
   const calculateTotalPrice = (products: ICard[]) => {

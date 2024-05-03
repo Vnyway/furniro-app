@@ -246,10 +246,6 @@ export const setSearchTerm = (
   };
 };
 
-// export const setSelectedProduct = (object: ICard): ProductsAction => {
-//   return { type: ProductsActionTypes.SET_SELECTED_PRODUCT, payload: object };
-// };
-
 export const setSelectedProduct = (id: number) => {
   return async (dispatch: Dispatch<ProductsAction>) => {
     try {

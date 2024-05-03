@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import starImg from "../../images/star-img.png";
 import halfStarImg from "../../images/half-star-img.png";
 import facebookImg from "../../images/share-facebook-icon.png";
@@ -8,7 +8,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 import { useParams } from "react-router-dom";
 
-const GeneralProductInfo: FC = () => {
+const GeneralProductInfo: React.FC = () => {
   const { productId } = useParams();
   const { selectedProduct, boughtProducts } = useTypedSelector(
     (state) => state.products

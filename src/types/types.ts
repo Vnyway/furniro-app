@@ -34,6 +34,10 @@ export interface IComment {
   message: string;
 }
 
+export interface ISubscriber {
+  email: string;
+}
+
 export enum SortingTypes {
   DEFAULT = "DEFAULT",
   PRICE = "PRICE",
@@ -67,6 +71,10 @@ export interface CommentsState {
   commentatorsData: IComment[];
 }
 
+export interface SubscribersState {
+  subscribersData: ISubscriber[];
+}
+
 export enum ProductsActionTypes {
   SET_INITIAL_STATE_HOME = "SET_INITIAL_STATE_HOME",
   SET_INITIAL_STATE_SHOP = "SET_INITIAL_STATE_SHOP",
@@ -93,6 +101,10 @@ export enum CustomersActionTypes {
 
 export enum CommentsActionTypes {
   SET_COMMENT_TO_COMMENTATORS_DATA = "SET_COMMENT_TO_COMMENTATORS_DATA",
+}
+
+export enum SubscribersActionTypes {
+  ADD_SUBSCRIBER = "ADD_SUBSCRIBER",
 }
 
 interface SetInitialStateHomeAction {
@@ -184,6 +196,11 @@ interface SetCommentToCommentatorsDataAction {
   payload: IComment;
 }
 
+interface AddSubscriberAction {
+  type: SubscribersActionTypes.ADD_SUBSCRIBER;
+  payload: ISubscriber;
+}
+
 export type ProductsAction =
   | SetInitialStateHomeAction
   | SetInitialStateShopAction
@@ -211,3 +228,5 @@ interface SetUserToCustomersAction {
 export type CustomersAction = SetUserToCustomersAction;
 
 export type CommentsAction = SetCommentToCommentatorsDataAction;
+
+export type SubscribersAction = AddSubscriberAction;

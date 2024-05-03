@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React from "react";
 import livingImg from "../../images/living-picture.png";
 import diningImg from "../../images/dining-picture.png";
 import bedroomImg from "../../images/bedroom-picture.png";
 
-const BrowseTheRange: FC = () => {
+const BrowseTheRange: React.FC = () => {
   return (
     <div className="text-center mx-[20px] flex flex-col items-center font-poppins mt-[40px]">
       <div className="mb-[40px]">

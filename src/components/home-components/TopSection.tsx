@@ -1,7 +1,7 @@
 import React from "react";
 import topSectionImage from "../../images/home-top-section-image.png";
 
-const TopSection = () => {
+const TopSection: React.FC = () => {
   return (
     <div
       style={{ backgroundImage: `url(${topSectionImage})` }}

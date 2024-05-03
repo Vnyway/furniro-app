@@ -1,9 +1,9 @@
 import React from "react";
-import BreadCrumbBig from "../BreadCrumbBig";
-import Benefits from "../shop-components/Benefits";
+import BreadCrumbBig from "../general-components/BreadCrumbBig";
+import Benefits from "../general-components/Benefits";
 import GeneralCart from "../cart-components/GeneralCart";
 
-const Cart = () => {
+const Cart: React.FC = () => {
   return (
     <>
       <BreadCrumbBig title="Cart" />

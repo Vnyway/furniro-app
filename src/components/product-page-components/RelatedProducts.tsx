@@ -5,7 +5,7 @@ import List from "../products/List";
 import { ICard } from "../../types/types";
 import Card from "../products/Card";
 
-const RelatedProducts = () => {
+const RelatedProducts: React.FC = () => {
   const { pageRelated, error, loading, productsRelated, searchTerm } =
     useTypedSelector((state) => state.products);
   const { fetchCardsRelated, fetchMoreCardsRelated } = useActions();

@@ -1,10 +1,10 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import innerPlaceImg from "../../images/slider-inner-place.png";
 import livingRoomImg from "../../images/slider-living-room.png";
 import nextImg from "../../images/next-line.png";
 import buttonNextImg from "../../images/button-next-img.png";
 
-const BeautifulRooms: FC = () => {
+const BeautifulRooms: React.FC = () => {
   const [room, setRoom] = useState<number>(1);
   const handleClick = () => {
     if (room !== 4) {

@@ -5,7 +5,7 @@ import OurProducts from "../home-components/OurProducts";
 import ShareSetup from "../home-components/ShareSetup";
 import BeautifulRooms from "../home-components/BeautifulRooms";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div>
       <TopSection />

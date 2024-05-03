@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import backgroundImg from "../images/bread-crumb-img.png";
+import React from "react";
+import backgroundImg from "../../images/bread-crumb-img.png";
 import { Link } from "react-router-dom";
-import insideImg from "../images/bread-crumb-inside-img.png";
+import insideImg from "../../images/bread-crumb-inside-img.png";
 
 interface BreadCrumbProps {
   title: string;
 }
 
-const BreadCrumbBig: FC<BreadCrumbProps> = (props) => {
+const BreadCrumbBig: React.FC<BreadCrumbProps> = (props) => {
   return (
     <div
       style={{

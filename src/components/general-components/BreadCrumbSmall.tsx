@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import insideImg from "../images/bread-crumb-inside-img.png";
+import React from "react";
+import insideImg from "../../images/bread-crumb-inside-img.png";
 import { Link } from "react-router-dom";
 
 interface BreadCrumbSmallProps {
   title: string;
 }
 
-const BreadCrumbSmall: FC<BreadCrumbSmallProps> = (props) => {
+const BreadCrumbSmall: React.FC<BreadCrumbSmallProps> = (props) => {
   return (
     <div className="bg-[#F9F1E7] h-[80px] md:h-[100px] flex items-center pl-[20px]">
       <div className="flex container mx-auto items-center gap-[20px] md:gap-[30px]">

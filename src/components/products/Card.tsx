@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import { ICard } from "../../types/types";
 import compareImg from "../../images/card-compare.png";
 import { useActions } from "../../hooks/useActions";
@@ -9,7 +9,7 @@ interface CardProps {
   card: ICard;
 }
 
-const Card: FC<CardProps> = ({ card }) => {
+const Card: React.FC<CardProps> = ({ card }) => {
   const { selectedProduct } = useTypedSelector((state) => state.products);
 
   const { setSelectedProduct, setProductsToCompared } = useActions();

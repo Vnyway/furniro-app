@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "./components/Header";
+import Header from "./components/general-components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Contact from "./components/pages/Contact";
 import Shop from "./components/pages/Shop";
-import Footer from "./components/Footer";
+import Footer from "./components/general-components/Footer";
 import Product from "./components/product-page-components/Product";
 import Comparison from "./components/pages/Comparison";
 import Cart from "./components/pages/Cart";

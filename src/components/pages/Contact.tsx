@@ -1,9 +1,9 @@
 import React from "react";
-import BreadCrumbBig from "../BreadCrumbBig";
+import BreadCrumbBig from "../general-components/BreadCrumbBig";
 import GeneralContact from "../contact-components/GeneralContact";
-import Benefits from "../shop-components/Benefits";
+import Benefits from "../general-components/Benefits";
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <div>
       <BreadCrumbBig title="Contact" />
