@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import BreadCrumbSmall from "../general-components/BreadCrumbSmall";
-import GeneralProductInfo from "./GeneralProductInfo";
+import GeneralProductInfo from "../product-page-components/GeneralProductInfo";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import RelatedProducts from "./RelatedProducts";
+import RelatedProducts from "../product-page-components/RelatedProducts";
 import { useParams } from "react-router-dom";
 import { useActions } from "../../hooks/useActions";
 
@@ -14,11 +14,11 @@ const Product: React.FC = () => {
     setSelectedProduct(Number(productId));
   }, []);
   return (
-    <div>
+    <main>
       {selectedProduct && <BreadCrumbSmall title={selectedProduct?.name} />}
       <GeneralProductInfo />
       <RelatedProducts />
-    </div>
+    </main>
   );
 };
 

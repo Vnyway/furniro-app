@@ -8,7 +8,7 @@ interface BreadCrumbSmallProps {
 
 const BreadCrumbSmall: React.FC<BreadCrumbSmallProps> = (props) => {
   return (
-    <div className="bg-[#F9F1E7] h-[80px] md:h-[100px] flex items-center pl-[20px]">
+    <section className="bg-[#F9F1E7] h-[80px] md:h-[100px] flex items-center pl-[20px]">
       <div className="flex container mx-auto items-center gap-[20px] md:gap-[30px]">
         <Link
           className="text-customGray1 font-poppins font-normal text-[14px] md:text-[16px]"
@@ -26,7 +26,7 @@ const BreadCrumbSmall: React.FC<BreadCrumbSmallProps> = (props) => {
           {props.title}
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

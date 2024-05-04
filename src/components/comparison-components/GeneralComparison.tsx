@@ -38,7 +38,7 @@ const GeneralComparison: React.FC = () => {
   };
 
   return (
-    <div className="overflow-x-auto mb-[60px]">
+    <section className="overflow-x-auto mb-[60px]">
       <table className="border-collapse whitespace-nowrap container mx-auto font-poppins text-[#000000]">
         <thead>
           <tr className="h-[250px]">
@@ -137,25 +137,18 @@ const GeneralComparison: React.FC = () => {
               const productIndex = findInBought(element);
               return (
                 <td className="border-l-[1px] pl-[40px]">
-                  <button
-                    onClick={() => {
-                      productIndex !== undefined
-                        ? setProductsToCart(
-                            boughtProducts[productIndex],
-                            boughtProducts[productIndex].count + 1
-                          )
-                        : setProductsToCart(element, element.count + 1);
-                    }}
-                    className="px-[48px] py-[17px] text-white bg-customBrown">
-                    Add To Cart
-                  </button>
+                  <Link to={`/products/${productIndex}`}>
+                    <button className="px-[48px] py-[17px] text-white bg-customBrown border-[1px] border-customBrown hover:text-customBrown hover:bg-white">
+                      Add To Cart
+                    </button>
+                  </Link>
                 </td>
               );
             })}
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
   );
 };
 

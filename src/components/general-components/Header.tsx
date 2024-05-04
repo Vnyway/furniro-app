@@ -16,25 +16,6 @@ const Header: React.FC = () => {
   const [cartOpened, setCartOpened] = useState<boolean>(false);
   const [searchOpened, setSearchOpened] = useState<boolean>(false);
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
-  const [placeholder, setPlaceholder] = useState<string>(
-    "Enter product's name..."
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 500) {
-        setPlaceholder("Type...");
-      } else {
-        setPlaceholder("Enter product's name...");
-      }
-    };
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const handleClick = () => {
     setMenuOpened(!menuOpened);
@@ -80,7 +61,7 @@ const Header: React.FC = () => {
       <div
         className={
           !cartOpened
-            ? "hidden absolute z-50 top-0 right-0 w-[300px] h-[746px] bg-white translate-x-[300px] ease-in-out duration-500 border-black border-[1px] px-[30px] py-[30px]"
+            ? "block absolute z-50 top-0 right-0 min-[600px]:w-[417px] h-[746px] bg-white translate-x-[417px] ease-in-out duration-500 border-black border-[1px] px-[30px] py-[30px]"
             : "block absolute z-50 top-0 right-0 w-full min-[600px]:w-[417px] h-[746px] bg-white ease-in-out duration-500 border-black border-[1px] px-[30px] py-[30px]"
         }>
         <div className="flex justify-between items-center pb-[30px] border-b-[1px] border-b-[#D9D9D9]">
@@ -147,19 +128,19 @@ const Header: React.FC = () => {
             {calculateTotalPrice(boughtProducts)}
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-[10px] px-[5px] mt-[20px] pt-[15px] border-t-[1px] border-t-[#D9D9D9]">
+        <div className="grid grid-cols-3 gap-[10px] px-[5px] mt-[20px] pt-[15px] border-t-[1px] border-t-[#D9D9D9] text-black">
           <Link to="/cart">
-            <button className="w-full py-[6px] border-[1px] border-[#000000] rounded-[50px] font-poppins font-normal text-[12px] text-[#000000]">
+            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white rounded-[50px] font-poppins font-normal text-[12px]">
               Cart
             </button>
           </Link>
           <Link to="/checkout">
-            <button className="w-full py-[6px] border-[1px] border-[#000000] rounded-[50px] font-poppins font-normal text-[12px] text-[#000000]">
+            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white rounded-[50px] font-poppins font-normal text-[12px]">
               Checkout
             </button>
           </Link>
           <Link to="/comparison">
-            <button className="w-full py-[6px] border-[1px] border-[#000000] rounded-[50px] font-poppins font-normal text-[12px] text-[#000000]">
+            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white rounded-[50px] font-poppins font-normal text-[12px]">
               Comparison
             </button>
           </Link>
@@ -170,13 +151,13 @@ const Header: React.FC = () => {
           <img src={logo} alt="logo" />
         </Link>
         <ul className="hidden md:flex space-x-[100px] flex-nowrap">
-          <li className="font-poppins font-medium text-[16px]">
+          <li className="font-poppins font-medium text-[16px] hover:text-customGray1">
             <Link to="/">Home</Link>
           </li>
-          <li className="font-poppins font-medium text-[16px]">
+          <li className="font-poppins font-medium text-[16px] hover:text-customGray1">
             <Link to="/shop">Shop</Link>
           </li>
-          <li className="font-poppins font-medium text-[16px]">
+          <li className="font-poppins font-medium text-[16px] hover:text-customGray1">
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
@@ -186,11 +167,11 @@ const Header: React.FC = () => {
               ref={inputRef}
               onChange={setSearchTerm}
               type="text"
-              placeholder={placeholder}
+              placeholder="Type..."
               className={
                 searchOpened
-                  ? "outline-none border-b-[1px] border-b-[#000000] mr-[10px] w-[48px] min-[500px]:w-[180px]"
-                  : "w-0"
+                  ? "outline-none ease-in-out border-b-[1px] border-b-[#000000] mr-[10px] w-[48px] min-[500px]:w-[180px]"
+                  : "w-0 ease-in-out"
               }
             />
             <button>
@@ -230,8 +211,8 @@ const Header: React.FC = () => {
       <ul
         className={
           !menuOpened
-            ? "block md:hidden absolute z-50 top-0 left-0 w-[80px] bg-white translate-x-[-200px] ease-in-out duration-500 border-r-2"
-            : "block md:hidden absolute z-50 top-0 left-0 w-[200px] bg-white ease-in-out duration-500 border-r-2"
+            ? "block md:hidden absolute z-40 top-0 left-0 w-[80px] bg-white translate-x-[-200px] ease-in-out duration-500 border-r-2"
+            : "block md:hidden absolute z-40 top-0 left-0 w-[200px] bg-white ease-in-out duration-500 border-r-2"
         }>
         <li className="border-b-2 h-[61px] pl-[10px]">
           <Link to="/">

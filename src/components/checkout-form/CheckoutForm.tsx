@@ -88,7 +88,7 @@ const CheckoutForm: React.FC = () => {
   }, [isSubmitSuccessful]);
 
   return (
-    <div className="container mx-auto font-poppins font-medium text-[14px] md:text-[16px] text-[#000000] my-[20px] md:my-[40px] px-[20px]">
+    <section className="container mx-auto font-poppins font-medium text-[14px] md:text-[16px] text-[#000000] my-[20px] md:my-[40px] px-[20px]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
@@ -357,7 +357,7 @@ const CheckoutForm: React.FC = () => {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 

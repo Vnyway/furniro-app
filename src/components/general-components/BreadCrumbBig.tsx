@@ -9,7 +9,7 @@ interface BreadCrumbProps {
 
 const BreadCrumbBig: React.FC<BreadCrumbProps> = (props) => {
   return (
-    <div
+    <section
       style={{
         backgroundImage: `url(${backgroundImg})`,
         backgroundSize: "cover",
@@ -25,7 +25,7 @@ const BreadCrumbBig: React.FC<BreadCrumbProps> = (props) => {
         <img src={insideImg} alt="insideImg" className="w-[6px] md:w-[8px]" />
         <h3 className="font-light text-[12px] md:text-[16px]">{props.title}</h3>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,11 +5,11 @@ import CheckoutForm from "../checkout-form/CheckoutForm";
 
 const Checkout: React.FC = () => {
   return (
-    <>
+    <main>
       <BreadCrumbBig title="Checkout" />
       <CheckoutForm />
       <Benefits />
-    </>
+    </main>
   );
 };
 

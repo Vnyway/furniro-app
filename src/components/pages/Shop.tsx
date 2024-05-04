@@ -5,11 +5,11 @@ import BreadCrumbBig from "../general-components/BreadCrumbBig";
 
 const Shop: React.FC = () => {
   return (
-    <div>
+    <main>
       <BreadCrumbBig title="Shop" />
       <Products />
       <Benefits />
-    </div>
+    </main>
   );
 };
 

@@ -6,7 +6,7 @@ import customerImg from "../../images/customer-img.png";
 
 const Benefits: React.FC = () => {
   return (
-    <div className="bg-[#FAF3EA]">
+    <section className="bg-[#FAF3EA]">
       <div className="grid py-[60px] grid-cols-2 md:grid-cols-4 mx-8 min-[500px]:mx-16 md:mx-16 lg:mx-24 2xl:mx-80 gap-[20px] md:gap-[25px]">
         <div className="flex items-center">
           <img
@@ -69,7 +69,7 @@ const Benefits: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

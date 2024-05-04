@@ -5,11 +5,11 @@ import GeneralCart from "../cart-components/GeneralCart";
 
 const Cart: React.FC = () => {
   return (
-    <>
+    <main>
       <BreadCrumbBig title="Cart" />
       <GeneralCart />
       <Benefits />
-    </>
+    </main>
   );
 };
 

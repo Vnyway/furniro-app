@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ card }) => {
   };
   return (
     <div
-      className="relative overflow-hidden transition-all"
+      className="relative overflow-hidden"
       onMouseOver={handleOver}
       onMouseOut={handleOut}>
       {over && (
@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({ card }) => {
           <Link
             to={`/product/${card.id}`}
             onClick={() => setSelectedProduct(card.id)}>
-            <button className="border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] py-[8px] px-[30px] md:py-[10px] md:px-[60px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20">
+            <button className="border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] hover:text-white hover:bg-customGray1 py-[8px] px-[30px] md:py-[10px] md:px-[60px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20">
               Add to cart
             </button>
           </Link>

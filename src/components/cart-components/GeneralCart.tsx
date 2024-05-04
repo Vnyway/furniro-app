@@ -20,7 +20,7 @@ const GeneralCart: React.FC = () => {
     });
   };
   return (
-    <div className="container mx-auto flex flex-col lg:flex-row lg:justify-between my-[30px] md:my-[60px]">
+    <section className="container mx-auto flex flex-col lg:flex-row lg:justify-between my-[30px] md:my-[60px]">
       <table className="table-auto w-full mr-[20px]">
         <thead className="bg-[#F9F1E7] h-[55px] py-[13px] font-medium text-[14px] md:text-[16px] w-full">
           <tr>
@@ -73,36 +73,42 @@ const GeneralCart: React.FC = () => {
           })}
         </tbody>
       </table>
-      <div
-        className="items-center bg-[#F9F1E7] font-poppins w-[340px] lg:w-[390px] h-auto flex flex-col border-black border-[1px] mb-[20px]"
-        style={{ height: "auto" }}>
-        <h1 className="font-semibold text-[28px] md:text-[32px] text-center mt-[12px] mb-[20px]">
-          Cart Totals
-        </h1>
-        <div className="flex flex-col w-[75%]">
-          {boughtProducts.map((element) => (
-            <div className="flex justify-between py-[15px]">
-              <p className="font-medium text-[14px] md:text-[16px]">Subtotal</p>
-              <p className="font-normal text-[14px] md:text-[16px] text-[#9F9F9F]">
-                Rp{" "}
-                {(element.currentPrice * element.count).toLocaleString("id-ID")}
-              </p>
-            </div>
-          ))}
+      {boughtProducts[0] && (
+        <div
+          className="items-center bg-[#F9F1E7] font-poppins w-[340px] lg:w-[390px] h-auto flex flex-col border-black border-[1px] mb-[20px]"
+          style={{ height: "auto" }}>
+          <h1 className="font-semibold text-[28px] md:text-[32px] text-center mt-[12px] mb-[20px]">
+            Cart Totals
+          </h1>
+          <div className="flex flex-col w-[75%]">
+            {boughtProducts.map((element) => (
+              <div className="flex justify-between py-[15px]">
+                <p className="font-medium text-[14px] md:text-[16px]">
+                  Subtotal
+                </p>
+                <p className="font-normal text-[14px] md:text-[16px] text-[#9F9F9F]">
+                  Rp{" "}
+                  {(element.currentPrice * element.count).toLocaleString(
+                    "id-ID"
+                  )}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="w-[75%] py-[10px] flex justify-between items-center">
+            <p className="font-medium text-[14px] md:text-[16px]">Total</p>
+            <p className="font-medium text-[16px] md:text-[20px] text-customBrown">
+              {calculateTotalPrice(boughtProducts)}
+            </p>
+          </div>
+          <Link to="/checkout">
+            <button className="text-[#000000] font-normal rounded-[15px] border-black border-[1px] mx-[30px] px-[58px] py-[14px] mt-[30%] mb-[20px]">
+              Checkout
+            </button>
+          </Link>
         </div>
-        <div className="w-[75%] py-[10px] flex justify-between items-center">
-          <p className="font-medium text-[14px] md:text-[16px]">Total</p>
-          <p className="font-medium text-[16px] md:text-[20px] text-customBrown">
-            {calculateTotalPrice(boughtProducts)}
-          </p>
-        </div>
-        <Link to="/checkout">
-          <button className="text-[#000000] font-normal rounded-[15px] border-black border-[1px] mx-[30px] px-[58px] py-[14px] mt-[30%] mb-[20px]">
-            Checkout
-          </button>
-        </Link>
-      </div>
-    </div>
+      )}
+    </section>
   );
 };
 

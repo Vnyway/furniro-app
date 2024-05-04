@@ -7,13 +7,13 @@ import BeautifulRooms from "../home-components/BeautifulRooms";
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <main>
       <TopSection />
       <BrowseTheRange />
       <OurProducts />
       <BeautifulRooms />
       <ShareSetup />
-    </div>
+    </main>
   );
 };
 

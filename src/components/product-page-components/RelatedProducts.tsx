@@ -14,7 +14,7 @@ const RelatedProducts: React.FC = () => {
     fetchCardsRelated(pageRelated, 8, searchTerm);
   }, [searchTerm]);
   return (
-    <div className="mx-0 px-[20px] my-[20px] md:my-[40px] flex flex-col items-center">
+    <section className="mx-0 px-[20px] my-[20px] md:my-[40px] flex flex-col items-center">
       <h2 className="font-poppins font-bold text-[34px] md:text-[40px] text-[#3A3A3A] text-center mb-[20px]">
         Our Products
       </h2>
@@ -37,7 +37,7 @@ const RelatedProducts: React.FC = () => {
           Show More
         </button>
       )}
-    </div>
+    </section>
   );
 };
 

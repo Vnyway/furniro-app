@@ -5,11 +5,11 @@ import Benefits from "../general-components/Benefits";
 
 const Contact: React.FC = () => {
   return (
-    <div>
+    <main>
       <BreadCrumbBig title="Contact" />
       <GeneralContact />
       <Benefits />
-    </div>
+    </main>
   );
 };
 

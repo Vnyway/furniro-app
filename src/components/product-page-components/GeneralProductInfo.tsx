@@ -53,7 +53,7 @@ const GeneralProductInfo: React.FC = () => {
   const stars = renderStars();
   return (
     selectedProduct && (
-      <div className="border-b-[2px] border-b-[#D9D9D9]">
+      <section className="border-b-[2px] border-b-[#D9D9D9]">
         <div className="container mx-auto mt-[40px] flex flex-col md:flex-row gap-[20px] md:gap-[70px] px-[20px]">
           <div>
             <img
@@ -204,7 +204,7 @@ const GeneralProductInfo: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     )
   );
 };

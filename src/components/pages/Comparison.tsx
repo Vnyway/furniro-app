@@ -5,11 +5,11 @@ import Benefits from "../general-components/Benefits";
 
 const Comparison: React.FC = () => {
   return (
-    <div>
+    <main>
       <BreadCrumbBig title="Comparison" />
       <GeneralComparison />
       <Benefits />
-    </div>
+    </main>
   );
 };
 

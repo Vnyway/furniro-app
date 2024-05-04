@@ -32,7 +32,7 @@ const Products: React.FC = () => {
   }, [pageShop, searchTerm, limitShop, total, sortType]);
 
   return (
-    <>
+    <section>
       <div className="bg-[#F9F1E7] font-poppins text-[#000000]">
         <div className="container h-[75px] md:h-[100px] md:px-[5px] mx-auto flex justify-center md:justify-between items-center">
           <div className="hidden md:flex items-center justify-between gap-[30px]">
@@ -154,7 +154,7 @@ const Products: React.FC = () => {
           </button>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

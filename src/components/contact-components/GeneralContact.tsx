@@ -29,7 +29,7 @@ const GeneralContact: React.FC = () => {
   }, [commentatorsData]);
 
   return (
-    <div className="font-poppins overflow-x-hidden text-[#000000] my-[30px] md:my-[50px] container mx-auto">
+    <section className="font-poppins overflow-x-hidden text-[#000000] my-[30px] md:my-[50px] container mx-auto">
       <div className="flex flex-col text-center">
         <h1 className="font-semibold text-[24px] md:text-[36px]">
           Get In Touch With Us
@@ -167,13 +167,13 @@ const GeneralContact: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-auto md:mt-[40px] lg:mt-0">
-            <button className="px-[89px] py-[14px] bg-customBrown text-[#FFFFFF] rounded-[5px] text-[16px] w-full md:w-auto">
+            <button className="px-[89px] py-[14px] bg-customBrown border-customBrown border-[1px] hover:bg-white hover:text-customBrown text-[#FFFFFF] rounded-[5px] text-[16px] w-full md:w-auto">
               Submit
             </button>
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
