@@ -33,7 +33,7 @@ const OurProducts: React.FC = () => {
       )}
       {!searchTerm && (
         <button
-          className="border-[#B88E2F] hover:bg-[#B88E2F] hover:text-white border-[1px] text-[#B88E2F] py-[7px] md:py-[10px] px-[60px] md:px-[74px] font-poppins text-[14px] md:text-[16px] font-semibold mt-[30px]"
+          className="border-[#B88E2F] hover:bg-[#B88E2F] hover:text-white transition-all duration-300 border-[1px] text-[#B88E2F] py-[7px] md:py-[10px] px-[60px] md:px-[74px] font-poppins text-[14px] md:text-[16px] font-semibold mt-[30px]"
           onClick={() => fetchMoreCards(pageHome, 8)}>
           Show More
         </button>

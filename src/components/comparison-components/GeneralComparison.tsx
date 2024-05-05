@@ -1,41 +1,12 @@
 import React from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { ICard } from "../../types/types";
 import { Link } from "react-router-dom";
-import starImg from "../../images/star-img.png";
-import halfStarImg from "../../images/half-star-img.png";
 import { useActions } from "../../hooks/useActions";
+import { renderStars } from "../../functions/renderStars";
 
 const GeneralComparison: React.FC = () => {
-  const { comparedProducts, boughtProducts } = useTypedSelector(
-    (state) => state.products
-  );
-  const { setProductsToCart } = useActions();
-  const renderStars = (card: ICard) => {
-    const fullStars = Math.floor(card.rating);
-    const hasHalfStar = card.rating % 1 !== 0;
-
-    const starElements = [];
-
-    for (let i = 0; i < fullStars; i++) {
-      starElements.push(<img key={i} src={starImg} alt="star" />);
-    }
-
-    if (hasHalfStar) {
-      starElements.push(<img key="half" src={halfStarImg} alt="half-star" />);
-    }
-
-    return starElements;
-  };
-
-  const findInBought = (card: ICard) => {
-    for (let i = 0; i < boughtProducts.length; i++) {
-      if (boughtProducts[i].id === card.id) {
-        return i;
-      }
-      return undefined;
-    }
-  };
+  const { comparedProducts } = useTypedSelector((state) => state.products);
+  const { setSelectedProduct } = useActions();
 
   return (
     <section className="overflow-x-auto mb-[60px]">
@@ -51,7 +22,7 @@ const GeneralComparison: React.FC = () => {
                 Products
               </h1>
               <Link to="/shop">
-                <button className="text-[#727272] text-[16px] md:text-[20px] border-b-[2px] border-b-[#727272] mt-[15px]">
+                <button className="text-black border-b-black hover:text-[#727272] text-[16px] md:text-[20px] border-b-[2px] hover:border-b-[#727272] transition duration-500 ease-in-out mt-[15px]">
                   View More
                 </button>
               </Link>
@@ -134,11 +105,12 @@ const GeneralComparison: React.FC = () => {
           <tr>
             <td className="py-[80px] border-r-[1px]"></td>
             {comparedProducts.map((element) => {
-              const productIndex = findInBought(element);
               return (
                 <td className="border-l-[1px] pl-[40px]">
-                  <Link to={`/products/${productIndex}`}>
-                    <button className="px-[48px] py-[17px] text-white bg-customBrown border-[1px] border-customBrown hover:text-customBrown hover:bg-white">
+                  <Link to={`/product/${element.id}`}>
+                    <button
+                      onClick={() => setSelectedProduct(element.id)}
+                      className="px-[48px] py-[17px] text-white bg-customBrown border-[1px] border-customBrown hover:text-customBrown hover:bg-white transition duration-300 ease-in-out">
                       Add To Cart
                     </button>
                   </Link>

@@ -1,24 +1,14 @@
 import React, { useState } from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { ICard } from "../../types/types";
 import trashImg from "../../images/trash_cart_img.png";
 import { useActions } from "../../hooks/useActions";
-import { setConstantValue } from "typescript";
 import { Link } from "react-router-dom";
+import { calculateTotalPrice } from "../../functions/calculateTotalPrice";
 
 const GeneralCart: React.FC = () => {
   const { boughtProducts } = useTypedSelector((state) => state.products);
   const { setProductsToCart } = useActions();
-  const calculateTotalPrice = (products: ICard[]) => {
-    let totalPrice = 0;
-    products.forEach((product) => {
-      totalPrice += product.count * product.currentPrice;
-    });
-    return totalPrice.toLocaleString("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    });
-  };
+
   return (
     <section className="container mx-auto flex flex-col lg:flex-row lg:justify-between my-[30px] md:my-[60px]">
       <table className="table-auto w-full mr-[20px]">
@@ -102,7 +92,7 @@ const GeneralCart: React.FC = () => {
             </p>
           </div>
           <Link to="/checkout">
-            <button className="text-[#000000] font-normal rounded-[15px] border-black border-[1px] mx-[30px] px-[58px] py-[14px] mt-[30%] mb-[20px]">
+            <button className="hover:bg-black hover:text-[#F9F1E7] transition duration-300 ease-in-out font-normal rounded-[15px] border-black border-[1px] mx-[30px] px-[58px] py-[14px] mt-[30%] mb-[20px]">
               Checkout
             </button>
           </Link>

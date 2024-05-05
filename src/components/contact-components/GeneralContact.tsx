@@ -167,7 +167,7 @@ const GeneralContact: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-auto md:mt-[40px] lg:mt-0">
-            <button className="px-[89px] py-[14px] bg-customBrown border-customBrown border-[1px] hover:bg-white hover:text-customBrown text-[#FFFFFF] rounded-[5px] text-[16px] w-full md:w-auto">
+            <button className="px-[89px] py-[14px] bg-customBrown border-customBrown border-[1px] hover:bg-white hover:text-customBrown transition duration-500 ease-in-out text-[#FFFFFF] rounded-[5px] text-[16px] w-full md:w-auto">
               Submit
             </button>
           </div>

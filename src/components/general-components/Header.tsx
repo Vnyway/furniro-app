@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import logo from "../../images/logo-site.png";
 import search from "../../images/search-icon.png";
 import cart from "../../images/cart-icon.png";
@@ -9,6 +9,7 @@ import deleteProductImg from "../../images/delete-product.png";
 import { useActions } from "../../hooks/useActions";
 import { ICard } from "../../types/types";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { calculateTotalPrice } from "../../functions/calculateTotalPrice";
 
 const Header: React.FC = () => {
   const { boughtProducts } = useTypedSelector((state) => state.products);
@@ -43,17 +44,6 @@ const Header: React.FC = () => {
       totalCount += product.count;
     });
     return totalCount;
-  };
-
-  const calculateTotalPrice = (products: ICard[]) => {
-    let totalPrice = 0;
-    products.forEach((product) => {
-      totalPrice += product.count * product.currentPrice;
-    });
-    return totalPrice.toLocaleString("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    });
   };
 
   return (
@@ -130,17 +120,17 @@ const Header: React.FC = () => {
         </div>
         <div className="grid grid-cols-3 gap-[10px] px-[5px] mt-[20px] pt-[15px] border-t-[1px] border-t-[#D9D9D9] text-black">
           <Link to="/cart">
-            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white rounded-[50px] font-poppins font-normal text-[12px]">
+            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white transition duration-300 ease-in-out rounded-[50px] font-poppins font-normal text-[12px]">
               Cart
             </button>
           </Link>
           <Link to="/checkout">
-            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white rounded-[50px] font-poppins font-normal text-[12px]">
+            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white transition duration-300 ease-in-out rounded-[50px] font-poppins font-normal text-[12px]">
               Checkout
             </button>
           </Link>
           <Link to="/comparison">
-            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white rounded-[50px] font-poppins font-normal text-[12px]">
+            <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white transition duration-300 ease-in-out rounded-[50px] font-poppins font-normal text-[12px]">
               Comparison
             </button>
           </Link>
@@ -151,13 +141,13 @@ const Header: React.FC = () => {
           <img src={logo} alt="logo" />
         </Link>
         <ul className="hidden md:flex space-x-[100px] flex-nowrap">
-          <li className="font-poppins font-medium text-[16px] hover:text-customGray1">
+          <li className="font-poppins font-medium text-[16px] hover:text-customGray1 transition duration-300 ease-in-out">
             <Link to="/">Home</Link>
           </li>
-          <li className="font-poppins font-medium text-[16px] hover:text-customGray1">
+          <li className="font-poppins font-medium text-[16px] hover:text-customGray1 transition duration-300 ease-in-out">
             <Link to="/shop">Shop</Link>
           </li>
-          <li className="font-poppins font-medium text-[16px] hover:text-customGray1">
+          <li className="font-poppins font-medium text-[16px] hover:text-customGray1 transition duration-300 ease-in-out">
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
@@ -168,11 +158,9 @@ const Header: React.FC = () => {
               onChange={setSearchTerm}
               type="text"
               placeholder="Type..."
-              className={
-                searchOpened
-                  ? "outline-none ease-in-out border-b-[1px] border-b-[#000000] mr-[10px] w-[48px] min-[500px]:w-[180px]"
-                  : "w-0 ease-in-out"
-              }
+              className={`outline-none transition-all duration-300 border-b-[1px] border-b-[#000000] mr-[10px] ${
+                searchOpened ? "w-[48px] min-[500px]:w-[110px]" : "w-0"
+              }`}
             />
             <button>
               <img
@@ -219,13 +207,13 @@ const Header: React.FC = () => {
             <img src={logo} className="mt-[20px] ml-2 pb-[31px] w-[150px]" />
           </Link>
         </li>
-        <li className="font-basic border-b-2 py-3 pr-20 pl-[20px] text-left ">
+        <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left ">
           <Link to="/">Home</Link>
         </li>
-        <li className="font-basic border-b-2 py-3 pr-20 pl-[20px] text-left">
+        <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
           <Link to="/shop">Shop</Link>
         </li>
-        <li className="font-basic border-b-2 py-3 pr-20 pl-[20px] text-left">
+        <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

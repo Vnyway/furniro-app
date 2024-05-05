@@ -14,7 +14,8 @@ const Card: React.FC<CardProps> = ({ card }) => {
 
   const { setSelectedProduct, setProductsToCompared } = useActions();
 
-  const [over, setOver] = useState(false);
+  const [over, setOver] = useState<boolean>(false);
+  const [isCompareHovered, setIsComparedHovered] = useState<boolean>(false);
 
   const handleOver = () => {
     setOver(true);
@@ -23,33 +24,57 @@ const Card: React.FC<CardProps> = ({ card }) => {
   const handleOut = () => {
     setOver(false);
   };
+
+  const handleCompareOver = () => {
+    setIsComparedHovered(true);
+  };
+
+  const handleCompareOut = () => {
+    setIsComparedHovered(false);
+  };
+
   return (
     <div
       className="relative overflow-hidden"
       onMouseOver={handleOver}
       onMouseOut={handleOut}>
-      {over && (
-        <>
-          <div className="absolute w-full h-full bg-products opacity-70 z-10"></div>
-          <Link
-            to={`/product/${card.id}`}
-            onClick={() => setSelectedProduct(card.id)}>
-            <button className="border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] hover:text-white hover:bg-customGray1 py-[8px] px-[30px] md:py-[10px] md:px-[60px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20">
-              Add to cart
-            </button>
-          </Link>
-          <div
-            onClick={() => setProductsToCompared(card)}
-            className="text-[#FFFFFF] font-semibold text-[12px] md:text-[16px] font-poppins absolute top-[55%] left-[50%] z-[50] translate-x-[-50%] flex items-center cursor-pointer">
-            <img
-              src={compareImg}
-              alt="compare"
-              className="size-[12px] md:size-[16px] "
-            />
-            <p>Compare</p>
-          </div>
-        </>
-      )}
+      <div
+        className={`absolute w-full h-full bg-products z-10 transition-opacity duration-300 ${
+          over ? "opacity-70" : "opacity-0"
+        }`}></div>
+      <Link
+        to={`/product/${card.id}`}
+        onClick={() => setSelectedProduct(card.id)}>
+        <button
+          className={`border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] hover:text-white hover:bg-customGray1 py-[8px] px-[30px] md:py-[10px] md:px-[60px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20 transition-all duration-300 ${
+            over ? "opacity-100" : "opacity-0"
+          }`}>
+          Add to cart
+        </button>
+      </Link>
+      <div
+        onClick={() => setProductsToCompared(card)}
+        onMouseOver={handleCompareOver}
+        onMouseOut={handleCompareOut}
+        className={`text-[#FFFFFF] font-semibold text-[12px] md:text-[16px] font-poppins absolute top-[55%] left-[50%] z-[50] translate-x-[-50%] flex items-center cursor-pointer transition-all duration-300 ${
+          over ? "opacity-100" : "opacity-0"
+        }`}>
+        <img
+          src={compareImg}
+          alt="compare"
+          className={`transition-all duration-300 ${
+            isCompareHovered
+              ? "size-[15px] md:size-[19px]"
+              : "size-[12px] md:size-[16px]"
+          }`}
+        />
+        <p
+          className={`transition-all duration-300 ${
+            isCompareHovered ? "text-[15px] md:text-[19px]" : ""
+          }`}>
+          Compare
+        </p>
+      </div>
       <div className="flex flex-col h-auto w-auto">
         <div
           className="relative h-[160px] md:h-[201px] lg:h-[301px] bg-cover"

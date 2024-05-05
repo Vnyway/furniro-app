@@ -11,22 +11,12 @@ import {
 } from "country-state-city";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
+import { calculateTotalPrice } from "../../functions/calculateTotalPrice";
 
 const CheckoutForm: React.FC = () => {
   const { customersData } = useTypedSelector((state) => state.customers);
   const { boughtProducts } = useTypedSelector((state) => state.products);
   const { setUserToCustomers, removeAllProductsFromCart } = useActions();
-
-  const calculateTotalPrice = (products: ICard[]) => {
-    let totalPrice = 0;
-    products.forEach((product) => {
-      totalPrice += product.count * product.currentPrice;
-    });
-    return totalPrice.toLocaleString("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    });
-  };
 
   let countryData: ICountry[] = Country.getAllCountries();
   const [stateData, setStateData] = useState<IState[]>();
@@ -351,7 +341,7 @@ const CheckoutForm: React.FC = () => {
             </p>
           </div>
           <div className="flex justify-center">
-            <button className="px-[102px] text-nowrap py-[17px] border-[1px] border-[#000000] rounded-[15px]">
+            <button className="px-[102px] text-nowrap py-[17px] border-[1px] border-[#000000] hover:text-white hover:bg-black transition duration-300 ease-in-out rounded-[15px]">
               Place order
             </button>
           </div>
