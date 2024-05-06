@@ -88,7 +88,7 @@ const GeneralProductInfo: React.FC = () => {
                 className={
                   selectedSize === 1
                     ? "size-[30px] bg-customBrown rounded-[5px] font-normal text-[#FFFFFF] text-[13px]"
-                    : "size-[30px] bg-[#F9F1E7] rounded-[5px] font-normal text-[#000000] text-[13px]"
+                    : "size-[30px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all duration-300 rounded-[5px] font-normal text-[#000000] text-[13px]"
                 }>
                 L
               </button>
@@ -97,7 +97,7 @@ const GeneralProductInfo: React.FC = () => {
                 className={
                   selectedSize === 2
                     ? "size-[30px] bg-customBrown rounded-[5px] font-normal text-[#FFFFFF] text-[13px]"
-                    : "size-[30px] bg-[#F9F1E7] rounded-[5px] font-normal text-[#000000] text-[13px]"
+                    : "size-[30px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all duration-300 rounded-[5px] font-normal text-[#000000] text-[13px]"
                 }>
                 XL
               </button>
@@ -106,7 +106,7 @@ const GeneralProductInfo: React.FC = () => {
                 className={
                   selectedSize === 3
                     ? "size-[30px] bg-customBrown rounded-[5px] font-normal text-[#FFFFFF] text-[13px]"
-                    : "size-[30px] bg-[#F9F1E7] rounded-[5px] font-normal text-[#000000] text-[13px]"
+                    : "size-[30px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all duration-300 rounded-[5px] font-normal text-[#000000] text-[13px]"
                 }>
                 XS
               </button>
@@ -170,12 +170,12 @@ const GeneralProductInfo: React.FC = () => {
                         selectedProduct.count + count
                       );
                 }}
-                className=" h-[64px] border-[1px] border-[#000000] rounded-[15px]">
+                className=" h-[64px] border-[1px] border-[#000000] hover:bg-black hover:text-white transition-all duration-300 rounded-[15px]">
                 Add To Cart
               </button>
               <button
                 onClick={() => setProductsToCompared(selectedProduct)}
-                className=" h-[64px] border-[1px] border-[#000000] rounded-[15px]">
+                className=" h-[64px] border-[1px] border-[#000000] hover:bg-black hover:text-white transition-all duration-300 rounded-[15px]">
                 + Compare
               </button>
             </div>

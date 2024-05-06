@@ -14,7 +14,7 @@ const BeautifulRooms: React.FC = () => {
     }
   };
   return (
-    <div className="flex items-center overflow-x-hidden mt-[50px] py-[30px] pl-[15px] md:pl-[100px] 2xl:pl-[300px] bg-[#FCF8F3]">
+    <section className="flex items-center overflow-x-hidden mt-[50px] py-[30px] pl-[15px] md:pl-[100px] 2xl:pl-[300px] bg-[#FCF8F3]">
       <div className="hidden lg:block w-[600px] pr-[30px]">
         <h2 className="font-poppins font-bold text-products text-[32px] md:text-[40px] leading-[120%] mb-[15px]">
           Beautiful rooms <br /> inspiration
@@ -138,7 +138,7 @@ const BeautifulRooms: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

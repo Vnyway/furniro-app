@@ -70,7 +70,7 @@ const Products: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="mx-[20px] mt-[40px] flex flex-col items-center">
+      <div className="container mx-auto px-[20px] mt-[40px] flex flex-col">
         {!error ? (
           <List
             items={productsShop}
@@ -86,7 +86,7 @@ const Products: React.FC = () => {
             }}
             className={
               position > 0
-                ? "w-[70px] md:w-[98px] h-[40px] md:h-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                ? "w-[70px] md:w-[98px] h-[40px] md:h-[60px] rounded-[10px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all ease-in-out duration-300 flex items-center justify-center"
                 : "hidden"
             }>
             Prev
@@ -101,7 +101,7 @@ const Products: React.FC = () => {
               pageShop ===
               (position > 0 ? pages[position - 1] : pages[position])
                 ? "size-[40px] md:size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
-                : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all ease-in-out duration-300 flex items-center justify-center"
             }>
             {position > 0 ? pages[position - 1] : pages[position]}
           </button>
@@ -117,7 +117,7 @@ const Products: React.FC = () => {
                 pageShop ===
                 (position > 0 ? pages[position] : pages[position + 1])
                   ? "size-[40px] md:size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
-                  : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                  : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all ease-in-out duration-300 flex items-center justify-center"
               }>
               {position > 0 ? pages[position] : pages[position + 1]}
             </button>
@@ -135,7 +135,7 @@ const Products: React.FC = () => {
                 pageShop ===
                 (position > 0 ? pages[position + 1] : pages[position + 2])
                   ? "size-[40px] md:size-[60px] rounded-[10px] bg-customBrown text-white flex items-center justify-center"
-                  : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                  : "size-[40px] md:size-[60px] rounded-[10px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all ease-in-out duration-300 flex items-center justify-center"
               }>
               {position > 0 ? pages[position + 1] : pages[position + 2]}
             </button>
@@ -147,7 +147,7 @@ const Products: React.FC = () => {
             }}
             className={
               position < pages.length - 1
-                ? "w-[70px] md:w-[98px] h-[40px] md:h-[60px] rounded-[10px] bg-[#F9F1E7] flex items-center justify-center"
+                ? "w-[70px] md:w-[98px] h-[40px] md:h-[60px] rounded-[10px] bg-[#F9F1E7] hover:bg-customBrown hover:text-white transition-all ease-in-out duration-300 flex items-center justify-center"
                 : "hidden"
             }>
             Next

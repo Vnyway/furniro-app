@@ -44,7 +44,10 @@ const Card: React.FC<CardProps> = ({ card }) => {
         }`}></div>
       <Link
         to={`/product/${card.id}`}
-        onClick={() => setSelectedProduct(card.id)}>
+        onClick={() => {
+          setSelectedProduct(card.id);
+          window.scrollTo(0, 0);
+        }}>
         <button
           className={`border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] hover:text-white hover:bg-customGray1 py-[8px] px-[30px] md:py-[10px] md:px-[60px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20 transition-all duration-300 ${
             over ? "opacity-100" : "opacity-0"

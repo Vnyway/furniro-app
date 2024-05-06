@@ -12,6 +12,15 @@ module.exports = {
         customGray: "#898989",
         customGray1: "#9F9F9F",
       },
+      keyframes: {
+        appear: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+      },
+      animation: {
+        appear: "appear",
+      },
     },
   },
   plugins: [],

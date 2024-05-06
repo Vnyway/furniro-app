@@ -5,7 +5,7 @@ import bedroomImg from "../../images/bedroom-picture.png";
 
 const BrowseTheRange: React.FC = () => {
   return (
-    <div className="text-center mx-[20px] flex flex-col items-center font-poppins mt-[40px]">
+    <section className="text-center mx-[20px] flex flex-col items-center font-poppins mt-[40px]">
       <div className="mb-[40px]">
         <h2 className="font-bold text-[28px] md:text-[32px] text-[#333333]">
           Browse The Range
@@ -40,7 +40,7 @@ const BrowseTheRange: React.FC = () => {
           </h3>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

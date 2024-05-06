@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const TopSection: React.FC = () => {
   return (
-    <div
+    <section
       style={{ backgroundImage: `url(${topSectionImage})` }}
-      className="h-[400px] md:h-[500px] lg:h-[800px] w-full bg-cover">
+      className={`h-[400px] md:h-[500px] lg:h-[800px] w-full bg-cover transition-opacity duration-300 animate-appear`}>
       <div className="container h-[400px] md:h-[500px] lg:h-[800px] mx-auto relative">
         <div className="absolute w-[300px] h-[270px]  md:w-[360px] lg:w-[643px] md:h-[360px] lg:h-[480px] top-[50%] translate-y-[-50%] right-0 rounded-[10px] bg-[#FFF3E3] px-[20px] py-[22px] md:px-[40px] md:py-[45px] lg:px-[50px] lg:py-[55px]">
           <span className="font-semibold font-poppins text-xs md:text-sm lg:text-base text-[#333333]">
@@ -26,7 +26,7 @@ const TopSection: React.FC = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

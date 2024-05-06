@@ -46,13 +46,13 @@ const Footer: React.FC = () => {
             Links
           </h3>
           <ul className="flex gap-[10px] md:gap-0 md:flex-col  md:space-y-[20px] font-poppins font-medium text-[16px]">
-            <li className="hover:text-customGray transition duration-500 ease-in-out">
+            <li className="hover:text-customGray transition duration-300 ease-in-out">
               <Link to="/">Home</Link>
             </li>
-            <li className="hover:text-customGray transition duration-500 ease-in-out">
+            <li className="hover:text-customGray transition duration-300 ease-in-out">
               <Link to="/shop">Shop</Link>
             </li>
-            <li className="hover:text-customGray transition duration-500 ease-in-out">
+            <li className="hover:text-customGray transition duration-300 ease-in-out">
               <Link to="/contact">Contact</Link>
             </li>
           </ul>
@@ -62,13 +62,13 @@ const Footer: React.FC = () => {
             Options
           </h3>
           <ul className="flex gap-[10px] md:gap-0 md:flex-col md:space-y-[20px] font-poppins font-medium text-[16px]">
-            <li className="hover:text-customGray transition duration-500 ease-in-out">
+            <li className="hover:text-customGray transition duration-300 ease-in-out">
               <Link to="/cart">Cart</Link>
             </li>
-            <li className="hover:text-customGray transition duration-500 ease-in-out">
+            <li className="hover:text-customGray transition duration-300 ease-in-out">
               <Link to="/checkout">Checkout</Link>
             </li>
-            <li className="hover:text-customGray transition duration-500 ease-in-out">
+            <li className="hover:text-customGray transition duration-300 ease-in-out">
               <Link to="/comparison">Comparison</Link>
             </li>
           </ul>
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
               disabled={!isValid}
               className={`w-[85px] font-poppins font-medium text-[#000000] text-[14px] border-b-[1px] border-b-[#000000] ${
                 isValid
-                  ? "hover:border-customGray hover:text-customGray transition duration-500 ease-in-out"
+                  ? "hover:border-customGray hover:text-customGray transition duration-300 ease-in-out"
                   : ""
               }`}>
               SUBSCRIBE

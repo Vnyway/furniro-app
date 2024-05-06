@@ -137,8 +137,12 @@ const Header: React.FC = () => {
         </div>
       </div>
       <div className="flex py-5 justify-between items-center">
-        <Link to="/" className="w-[150px]">
-          <img src={logo} alt="logo" />
+        <Link to="/" className="w-[155px] relative">
+          <img
+            src={logo}
+            alt="logo"
+            className="absolute w-[150px] top-[50%] translate-y-[-50%] hover:w-[155px] transition-all ease-in-out duration-300"
+          />
         </Link>
         <ul className="hidden md:flex space-x-[100px] flex-nowrap">
           <li className="font-poppins font-medium text-[16px] hover:text-customGray1 transition duration-300 ease-in-out">
@@ -152,29 +156,35 @@ const Header: React.FC = () => {
           </li>
         </ul>
         <div className="flex space-x-[30px] items-center">
-          <form className="flex">
-            <input
-              ref={inputRef}
-              onChange={setSearchTerm}
-              type="text"
-              placeholder="Type..."
-              className={`outline-none transition-all duration-300 border-b-[1px] border-b-[#000000] mr-[10px] ${
-                searchOpened ? "w-[48px] min-[500px]:w-[110px]" : "w-0"
-              }`}
-            />
-            <button>
-              <img
-                onClick={searchHandler}
-                className="w-[28px] cursor-pointer"
-                src={search}
-                alt="search-icon"
+          <div className="w-[100px] min-[500px]:w-[150px] relative">
+            <form className="flex">
+              <input
+                ref={inputRef}
+                onChange={setSearchTerm}
+                type="text"
+                placeholder="Type..."
+                className={`absolute right-[30px] top-[50%] translate-y-[-50%] outline-none transition-all duration-300 border-b-[1px] border-b-black mr-[10px] ${
+                  searchOpened ? "w-[48px] min-[500px]:w-[110px]" : "w-0"
+                }`}
               />
-            </button>
-          </form>
+              <button>
+                <img
+                  onClick={searchHandler}
+                  className="w-[28px] hover:w-[32px] absolute top-[50%] translate-y-[-50%] right-0 transition-all ease-in-out duration-300 cursor-pointer"
+                  src={search}
+                  alt="search-icon"
+                />
+              </button>
+            </form>
+          </div>
           <div
             onClick={() => cartHandler()}
-            className="relative size-[28px] cursor-pointer">
-            <img className="w-[28px]" src={cart} alt="cart-icon" />
+            className="relative size-[32px] cursor-pointer">
+            <img
+              className="absolute top-[50%] translate-y-[-50%] w-[28px] hover:w-[32px] transition-all ease-in-out duration-300"
+              src={cart}
+              alt="cart-icon"
+            />
             {calculteTotalCount(boughtProducts) > 0 && (
               <div className="absolute right-[-5px] bottom-[-5px] size-[20px] rounded-full bg-[#FFF3E3]">
                 <p className="p-0 m-0 absolute right-[50%] translate-x-[50%] bottom-[50%] translate-y-[50%]">
@@ -184,38 +194,48 @@ const Header: React.FC = () => {
             )}
           </div>
           {!menuOpened ? (
-            <AiOutlineMenu
-              className="block md:hidden size-[20px] cursor-pointer"
-              onClick={handleClick}
-            />
+            <div className="size-[25px] relative md:hidden">
+              <AiOutlineMenu
+                className="block md:hidden absolute top-[50%] translate-y-[-50%] size-[20px] hover:size-[25px] transition-all ease-in-out duration-300 cursor-pointer"
+                onClick={handleClick}
+              />
+            </div>
           ) : (
-            <AiOutlineClose
-              className="block md:hidden size-[20px] cursor-pointer"
-              onClick={handleClick}
-            />
+            <div className="size-[25px] relative md:hidden">
+              <AiOutlineClose
+                className="block md:hidden absolute top-[50%] translate-y-[-50%] size-[20px] hover:size-[25px] transition-all ease-in-out duration-300 cursor-pointer"
+                onClick={handleClick}
+              />
+            </div>
           )}
         </div>
       </div>
       <ul
         className={
           !menuOpened
-            ? "block md:hidden absolute z-40 top-0 left-0 w-[80px] bg-white translate-x-[-200px] ease-in-out duration-500 border-r-2"
-            : "block md:hidden absolute z-40 top-0 left-0 w-[200px] bg-white ease-in-out duration-500 border-r-2"
+            ? "block md:hidden absolute z-40 top-0 left-0 w-[100px] bg-white translate-x-[-200px] ease-in-out duration-300 border-black border-[1px]"
+            : "block md:hidden absolute z-40 top-0 left-0 w-[200px] bg-white ease-in-out duration-300 border-black border-[1px]"
         }>
-        <li className="border-b-2 h-[61px] pl-[10px]">
-          <Link to="/">
+        <Link to="/">
+          <li className="border-b-2 h-[61px] pl-[10px]">
             <img src={logo} className="mt-[20px] ml-2 pb-[31px] w-[150px]" />
-          </Link>
-        </li>
-        <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left ">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
-          <Link to="/shop">Shop</Link>
-        </li>
-        <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
-          <Link to="/contact">Contact</Link>
-        </li>
+          </li>
+        </Link>
+        <Link to="/">
+          <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left ">
+            Home
+          </li>
+        </Link>
+        <Link to="/shop">
+          <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
+            Shop
+          </li>
+        </Link>
+        <Link to="/contact">
+          <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
+            Contact
+          </li>
+        </Link>
       </ul>
     </header>
   );

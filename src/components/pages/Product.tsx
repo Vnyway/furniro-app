@@ -15,7 +15,7 @@ const Product: React.FC = () => {
   }, []);
   return (
     <main>
-      {selectedProduct && <BreadCrumbSmall title={selectedProduct?.name} />}
+      <BreadCrumbSmall title={selectedProduct?.name} />
       <GeneralProductInfo />
       <RelatedProducts />
     </main>

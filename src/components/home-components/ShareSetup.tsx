@@ -11,7 +11,7 @@ import shareSetupImg9 from "../../images/share-setup-9.png";
 
 const ShareSetup: React.FC = () => {
   return (
-    <div className="hidden lg:flex w-full overflow-hidden mt-[60px] text-center  flex-col items-center">
+    <section className="hidden lg:flex w-full overflow-hidden mt-[60px] text-center  flex-col items-center">
       <span className="font-poppins font-semibold text-[20px] text-[#616161]">
         Share your setup with
       </span>
@@ -56,7 +56,7 @@ const ShareSetup: React.FC = () => {
           className="absolute w-[300px] right-[200px] top-[570px]"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

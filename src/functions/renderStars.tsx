@@ -1,4 +1,3 @@
-import React from "react";
 import { ICard } from "../types/types";
 import starImg from "../images/star-img.png";
 import halfStarImg from "../images/half-star-img.png";
