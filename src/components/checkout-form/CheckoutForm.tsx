@@ -12,6 +12,7 @@ import {
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 import { calculateTotalPrice } from "../../functions/calculateTotalPrice";
+import InputError from "../general-components/InputError";
 
 const CheckoutForm: React.FC = () => {
   const { customersData } = useTypedSelector((state) => state.customers);
@@ -91,7 +92,7 @@ const CheckoutForm: React.FC = () => {
             <div className="flex flex-col gap-[10px]">
               <div className="flex justify-between">
                 <label htmlFor="firstName">First name</label>
-                <p className="error">{errors.firstName?.message}</p>
+                <InputError message={errors.firstName?.message} />
               </div>
               <input
                 className="outline-none md:max-w-[200px] lg:max-w-[600px] h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
@@ -105,7 +106,7 @@ const CheckoutForm: React.FC = () => {
             <div className="flex flex-col gap-[10px]">
               <div className="flex justify-between">
                 <label htmlFor="lastName">Last name</label>
-                <p className="error">{errors.lastName?.message}</p>
+                <InputError message={errors.lastName?.message} />
               </div>
               <input
                 className="outline-none md:max-w-[200px] lg:max-w-[600px] h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
@@ -120,7 +121,7 @@ const CheckoutForm: React.FC = () => {
           <div className="flex flex-col gap-[10px]">
             <div className="flex justify-between">
               <label htmlFor="companyName">Company name (Optional)</label>
-              <p className="error">{errors.companyName?.message}</p>
+              <InputError message={errors.companyName?.message} />
             </div>
             <input
               className="outline-none h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
@@ -132,9 +133,8 @@ const CheckoutForm: React.FC = () => {
           <div className="flex flex-col gap-[10px]">
             <div className="flex justify-between">
               <label htmlFor="country">Country</label>
-              <p className="error">{errors.country?.message}</p>
+              <InputError message={errors.country?.message} />
             </div>
-
             <select
               className="h-[75px] w-full rounded-[15px] border-[1px] border-[#9F9F9F] px-[10px]"
               id="country"
@@ -161,7 +161,7 @@ const CheckoutForm: React.FC = () => {
             <div className="flex flex-col gap-[10px]">
               <div className="flex justify-between">
                 <label htmlFor="state">State</label>
-                <p className="error">{errors.state?.message}</p>
+                <InputError message={errors.state?.message} />
               </div>
 
               <select
@@ -193,7 +193,7 @@ const CheckoutForm: React.FC = () => {
             <div className="flex flex-col gap-[10px]">
               <div className="flex justify-between">
                 <label htmlFor="city">City</label>
-                <p className="error">{errors.city?.message}</p>
+                <InputError message={errors.city?.message} />
               </div>
 
               <select
@@ -219,7 +219,7 @@ const CheckoutForm: React.FC = () => {
           <div className="flex flex-col gap-[10px]">
             <div className="flex justify-between">
               <label htmlFor="phone">Phone</label>
-              <p className="error">{errors.phone?.message}</p>
+              <InputError message={errors.phone?.message} />
             </div>
             <input
               className="outline-none h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
@@ -237,7 +237,7 @@ const CheckoutForm: React.FC = () => {
           <div className="flex flex-col gap-[10px]">
             <div className="flex justify-between">
               <label htmlFor="emailAddress">Email address</label>
-              <p className="error">{errors.emailAddress?.message}</p>
+              <InputError message={errors.emailAddress?.message} />
             </div>
             <input
               className="outline-none h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
@@ -258,7 +258,7 @@ const CheckoutForm: React.FC = () => {
               <label htmlFor="additionalInformation">
                 Additional information
               </label>
-              <p className="error">{errors.additionalInformation?.message}</p>
+              <InputError message={errors.additionalInformation?.message} />
             </div>
             <input
               className="outline-none h-[75px] ps-[10px] rounded-[15px] border-[#9F9F9F] border-[1px]"
@@ -308,7 +308,7 @@ const CheckoutForm: React.FC = () => {
                 className="font-semibold text-[18px] md:text-[20px]">
                 Choose your payment method
               </label>
-              <p className="error">{errors.directBankTransfer?.message}</p>
+              <InputError message={errors.directBankTransfer?.message} />
             </div>
             <div className="mb-[8px]">
               <input

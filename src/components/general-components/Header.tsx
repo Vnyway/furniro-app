@@ -58,12 +58,14 @@ const Header: React.FC = () => {
           <h2 className="font-poppins font-semibold text-[#000000] text-[24px]">
             Shopping Cart
           </h2>
-          <img
-            src={closeCartImg}
-            alt="close-cart"
-            className="w-[17px] h-[19px] cursor-pointer"
-            onClick={cartHandler}
-          />
+          <div className="relative size-[20px]">
+            <img
+              src={closeCartImg}
+              alt="close-cart"
+              className="w-[17px] hover:w-[20px] transition-all ease-in-out duration-300 absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] cursor-pointer"
+              onClick={cartHandler}
+            />
+          </div>
         </div>
         <div className="my-[20px] h-[500px] overflow-y-auto">
           {boughtProducts.map((product) => {
@@ -74,11 +76,15 @@ const Header: React.FC = () => {
                   className="flex justify-between items-center my-[20px]">
                   <Link
                     to={`/product/${product.id}`}
-                    onClick={() => setSelectedProduct(product.id)}>
+                    onClick={() => {
+                      setSelectedProduct(product.id);
+                      window.scrollTo(0, 0);
+                    }}
+                    className="relative size-[110px]">
                     <img
                       src={product.image}
                       alt="product-img"
-                      className="size-[105px] rounded-[10px]"
+                      className="size-[105px] hover:size-[110px] transition-all ease-in-out duration-300 absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] rounded-[10px]"
                     />
                   </Link>
                   <div className="flex flex-col w-[130px]">
@@ -97,14 +103,16 @@ const Header: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                  <img
-                    onClick={() => {
-                      setProductsToCart(product, 0);
-                    }}
-                    src={deleteProductImg}
-                    alt="delete-product"
-                    className="size-[20px] cursor-pointer"
-                  />
+                  <div className="relative size-[25px]">
+                    <img
+                      onClick={() => {
+                        setProductsToCart(product, 0);
+                      }}
+                      src={deleteProductImg}
+                      alt="delete-product"
+                      className="size-[20px] hover:size-[25px] absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] cursor-pointer ease-in-out transition-all duration-300"
+                    />
+                  </div>
                 </div>
               );
             }

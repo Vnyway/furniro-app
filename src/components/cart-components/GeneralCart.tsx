@@ -7,7 +7,7 @@ import { calculateTotalPrice } from "../../functions/calculateTotalPrice";
 
 const GeneralCart: React.FC = () => {
   const { boughtProducts } = useTypedSelector((state) => state.products);
-  const { setProductsToCart } = useActions();
+  const { setProductsToCart, setSelectedProduct } = useActions();
 
   return (
     <section className="container mx-auto flex flex-col lg:flex-row lg:justify-between my-[30px] md:my-[60px]">
@@ -26,12 +26,21 @@ const GeneralCart: React.FC = () => {
           {boughtProducts.map((element) => {
             return (
               <tr className="font-poppins font-normal text-[#9F9F9F] text-[14px] md:text-[16px]">
-                <td className="w-[108px] py-[20px]">
-                  <img
-                    className="w-[108px] rounded-[10px]"
-                    src={element.image}
-                    alt={element.name}
-                  />
+                <td className="w-[112px] py-[20px]">
+                  <Link
+                    to={`/product/${element.id}`}
+                    onClick={() => {
+                      setSelectedProduct(element.id);
+                      window.scrollTo(0, 0);
+                    }}>
+                    <div className="size-[112px] relative">
+                      <img
+                        className="size-[108px] hover:size-[112px] absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] transition-all ease-in-out duration-300 rounded-[10px]"
+                        src={element.image}
+                        alt={element.name}
+                      />
+                    </div>
+                  </Link>
                 </td>
                 <td className="">{element.name}</td>
                 <td className="">
@@ -48,12 +57,12 @@ const GeneralCart: React.FC = () => {
                     "id-ID"
                   )}
                 </td>
-                <td>
+                <td className="relative">
                   <img
                     onClick={() => {
                       setProductsToCart(element, 0);
                     }}
-                    className="cursor-pointer"
+                    className="cursor-pointer absolute top-[50%] translate-y-[-50%] right-[50%] translate-x-[50%] size-[20px] hover:size-[24px] transition-all ease-in-out duration-300"
                     src={trashImg}
                     alt="trashImg"
                   />

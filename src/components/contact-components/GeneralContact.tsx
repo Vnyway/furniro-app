@@ -6,6 +6,7 @@ import { IComment } from "../../types/types";
 import { useForm } from "react-hook-form";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import InputError from "../general-components/InputError";
 
 const GeneralContact: React.FC = () => {
   const { commentatorsData } = useTypedSelector((state) => state.commentators);
@@ -96,9 +97,9 @@ const GeneralContact: React.FC = () => {
             <div className="flex flex-col gap-[10px] md:gap-[15px] w-full  ">
               <div className="flex justify-between">
                 <label className="font-medium text-[16px]" htmlFor="name">
-                  Your name
+                  Name
                 </label>
-                <p className="error">{errors.name?.message}</p>
+                <InputError message={errors.name?.message} />
               </div>
               <input
                 className="h-[60px] md:h-[75px] outline-none border-[1px] border-customGray1 rounded-[10px] px-[14px] md:px-[20px] text-[14px] md:text-[16px]"
@@ -113,9 +114,9 @@ const GeneralContact: React.FC = () => {
             <div className="flex flex-col gap-[10px] md:gap-[15px]">
               <div className="flex justify-between">
                 <label className="font-medium text-[16px]" htmlFor="email">
-                  Email address
+                  Email
                 </label>
-                <p className="error">{errors.email?.message}</p>
+                <InputError message={errors.email?.message} />
               </div>
               <input
                 className="h-[60px] md:h-[75px] outline-none border-[1px] border-customGray1 rounded-[10px] px-[14px] md:px-[20px] text-[14px] md:text-[16px]"
@@ -139,6 +140,7 @@ const GeneralContact: React.FC = () => {
                 <label className="font-medium text-[16px]" htmlFor="subject">
                   Subject
                 </label>
+                <InputError message={errors.subject?.message} />
               </div>
               <input
                 className="h-[60px] md:h-[75px] outline-none border-[1px] border-customGray1 rounded-[10px] px-[14px] md:px-[20px] text-[14px] md:text-[16px]"
@@ -153,7 +155,7 @@ const GeneralContact: React.FC = () => {
                 <label className="font-medium text-[16px]" htmlFor="message">
                   Message
                 </label>
-                <p className="error">{errors.message?.message}</p>
+                <InputError message={errors.message?.message} />
               </div>
               <input
                 type="text"
@@ -161,13 +163,13 @@ const GeneralContact: React.FC = () => {
                 className="h-[60px] md:h-[75px] outline-none border-[1px] border-customGray1 rounded-[10px] px-[14px] md:px-[20px] text-[14px] md:text-[16px]"
                 {...register("message", {
                   required: { value: true, message: "Required" },
-                  minLength: { value: 9, message: "Too short message" },
+                  minLength: { value: 9, message: "Too short" },
                 })}
               />
             </div>
           </div>
           <div className="w-full md:w-auto md:mt-[40px] lg:mt-0">
-            <button className="px-[89px] py-[14px] bg-customBrown border-customBrown border-[1px] hover:bg-white hover:text-customBrown transition duration-300 ease-in-out text-[#FFFFFF] rounded-[5px] text-[16px] w-full md:w-auto">
+            <button className="px-[89px] py-[14px] bg-customBrown border-customBrown border-[1px] hover:bg-white hover:text-customBrown transition duration-300 ease-in-out text-[#FFFFFF] rounded-[5px] text-[16px] w-full md:w-auto mt-[6px]">
               Submit
             </button>
           </div>
