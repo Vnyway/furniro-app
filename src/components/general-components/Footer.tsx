@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
               disabled={!isValid}
               className={`w-[85px] font-poppins font-medium text-[#000000] text-[14px] border-b-[1px] border-b-[#000000] ${
                 isValid
-                  ? "hover:border-customGray hover:text-customGray transition duration-300 ease-in-out"
+                  ? "hover:border-customGray hover:text-customGray transition duration-300 ease-in-out cursor-pointer"
                   : ""
               }`}>
               SUBSCRIBE

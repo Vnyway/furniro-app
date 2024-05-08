@@ -25,14 +25,6 @@ const Card: React.FC<CardProps> = ({ card }) => {
     setOver(false);
   };
 
-  const handleCompareOver = () => {
-    setIsComparedHovered(true);
-  };
-
-  const handleCompareOut = () => {
-    setIsComparedHovered(false);
-  };
-
   return (
     <div
       className="relative overflow-hidden"
@@ -57,24 +49,15 @@ const Card: React.FC<CardProps> = ({ card }) => {
       </Link>
       <div
         onClick={() => setProductsToCompared(card)}
-        onMouseOver={handleCompareOver}
-        onMouseOut={handleCompareOut}
-        className={`text-[#FFFFFF] font-semibold text-[12px] md:text-[16px] font-poppins absolute top-[55%] left-[50%] z-[50] translate-x-[-50%] flex items-center cursor-pointer transition-all duration-300 ${
+        className={`text-[#FFFFFF] font-semibold text-[12px] md:text-[16px] font-poppins absolute top-[55%] left-[50%] z-[50] translate-x-[-50%] flex gap-[2px] items-center group cursor-pointer ${
           over ? "opacity-100" : "opacity-0"
         }`}>
         <img
           src={compareImg}
           alt="compare"
-          className={`transition-all duration-300 ${
-            isCompareHovered
-              ? "size-[15px] md:size-[19px]"
-              : "size-[12px] md:size-[16px]"
-          }`}
+          className="group-hover:scale-105 transition-all ease-in-out duration-300"
         />
-        <p
-          className={`transition-all duration-300 ${
-            isCompareHovered ? "text-[15px] md:text-[19px]" : ""
-          }`}>
+        <p className="group-hover:scale-105 transition-all ease-in-out duration-300">
           Compare
         </p>
       </div>

@@ -58,16 +58,14 @@ const Header: React.FC = () => {
           <h2 className="font-poppins font-semibold text-[#000000] text-[24px]">
             Shopping Cart
           </h2>
-          <div className="relative size-[20px]">
-            <img
-              src={closeCartImg}
-              alt="close-cart"
-              className="w-[17px] hover:w-[20px] transition-all ease-in-out duration-300 absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] cursor-pointer"
-              onClick={cartHandler}
-            />
-          </div>
+          <img
+            src={closeCartImg}
+            alt="close-cart"
+            className="w-[17px] hover:scale-125 transition-all ease-in-out duration-300 cursor-pointer"
+            onClick={cartHandler}
+          />
         </div>
-        <div className="my-[20px] h-[500px] overflow-y-auto">
+        <div className="my-[20px] h-[500px] overflow-x-visible overflow-y-auto">
           {boughtProducts.map((product) => {
             if (product.count > 0) {
               return (
@@ -80,11 +78,11 @@ const Header: React.FC = () => {
                       setSelectedProduct(product.id);
                       window.scrollTo(0, 0);
                     }}
-                    className="relative size-[110px]">
+                    className="pl-[5px]">
                     <img
                       src={product.image}
                       alt="product-img"
-                      className="size-[105px] hover:size-[110px] transition-all ease-in-out duration-300 absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] rounded-[10px]"
+                      className="size-[105px] hover:scale-110 transition-all ease-in-out duration-300 rounded-[10px]"
                     />
                   </Link>
                   <div className="flex flex-col w-[130px]">
@@ -103,14 +101,14 @@ const Header: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="relative size-[25px]">
+                  <div className="size-[25px]">
                     <img
                       onClick={() => {
                         setProductsToCart(product, 0);
                       }}
                       src={deleteProductImg}
                       alt="delete-product"
-                      className="size-[20px] hover:size-[25px] absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] cursor-pointer ease-in-out transition-all duration-300"
+                      className="size-[20px] hover:scale-125 cursor-pointer ease-in-out transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -145,11 +143,11 @@ const Header: React.FC = () => {
         </div>
       </div>
       <div className="flex py-5 justify-between items-center">
-        <Link to="/" className="w-[155px] relative">
+        <Link to="/">
           <img
             src={logo}
             alt="logo"
-            className="absolute w-[150px] top-[50%] translate-y-[-50%] hover:w-[155px] transition-all ease-in-out duration-300"
+            className="w-[150px] hover:scale-110  transition-all ease-in-out duration-300"
           />
         </Link>
         <ul className="hidden md:flex space-x-[100px] flex-nowrap">
@@ -178,7 +176,7 @@ const Header: React.FC = () => {
               <button>
                 <img
                   onClick={searchHandler}
-                  className="w-[28px] hover:w-[32px] absolute top-[50%] translate-y-[-50%] right-0 transition-all ease-in-out duration-300 cursor-pointer"
+                  className="w-[28px] hover:scale-110 absolute top-[50%] translate-y-[-50%] right-0 transition-all ease-in-out duration-300 cursor-pointer"
                   src={search}
                   alt="search-icon"
                 />
@@ -189,7 +187,7 @@ const Header: React.FC = () => {
             onClick={() => cartHandler()}
             className="relative size-[32px] cursor-pointer">
             <img
-              className="absolute top-[50%] translate-y-[-50%] w-[28px] hover:w-[32px] transition-all ease-in-out duration-300"
+              className="absolute top-[50%] translate-y-[-50%] w-[28px] hover:scale-110 transition-all ease-in-out duration-300"
               src={cart}
               alt="cart-icon"
             />
@@ -202,19 +200,15 @@ const Header: React.FC = () => {
             )}
           </div>
           {!menuOpened ? (
-            <div className="size-[25px] relative md:hidden">
-              <AiOutlineMenu
-                className="block md:hidden absolute top-[50%] translate-y-[-50%] size-[20px] hover:size-[25px] transition-all ease-in-out duration-300 cursor-pointer"
-                onClick={handleClick}
-              />
-            </div>
+            <AiOutlineMenu
+              className="block md:hidden size-[20px] hover:scale-110 transition-all ease-in-out duration-300 cursor-pointer"
+              onClick={handleClick}
+            />
           ) : (
-            <div className="size-[25px] relative md:hidden">
-              <AiOutlineClose
-                className="block md:hidden absolute top-[50%] translate-y-[-50%] size-[20px] hover:size-[25px] transition-all ease-in-out duration-300 cursor-pointer"
-                onClick={handleClick}
-              />
-            </div>
+            <AiOutlineClose
+              className="block md:hidden size-[20px] hover:scale-110 transition-all ease-in-out duration-300 cursor-pointer"
+              onClick={handleClick}
+            />
           )}
         </div>
       </div>

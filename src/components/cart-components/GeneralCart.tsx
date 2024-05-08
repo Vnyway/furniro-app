@@ -33,13 +33,11 @@ const GeneralCart: React.FC = () => {
                       setSelectedProduct(element.id);
                       window.scrollTo(0, 0);
                     }}>
-                    <div className="size-[112px] relative">
-                      <img
-                        className="size-[108px] hover:size-[112px] absolute right-[50%] translate-x-[50%] top-[50%] translate-y-[-50%] transition-all ease-in-out duration-300 rounded-[10px]"
-                        src={element.image}
-                        alt={element.name}
-                      />
-                    </div>
+                    <img
+                      className="size-[108px] hover:scale-110 transition-all ease-in-out duration-300 rounded-[10px]"
+                      src={element.image}
+                      alt={element.name}
+                    />
                   </Link>
                 </td>
                 <td className="">{element.name}</td>
@@ -57,12 +55,12 @@ const GeneralCart: React.FC = () => {
                     "id-ID"
                   )}
                 </td>
-                <td className="relative">
+                <td>
                   <img
                     onClick={() => {
                       setProductsToCart(element, 0);
                     }}
-                    className="cursor-pointer absolute top-[50%] translate-y-[-50%] right-[50%] translate-x-[50%] size-[20px] hover:size-[24px] transition-all ease-in-out duration-300"
+                    className="cursor-pointer size-[20px] hover:scale-125 transition-all ease-in-out duration-300"
                     src={trashImg}
                     alt="trashImg"
                   />

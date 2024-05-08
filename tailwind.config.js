@@ -14,12 +14,12 @@ module.exports = {
       },
       keyframes: {
         appear: {
-          from: { opacity: "0" },
-          to: { opacity: "1" },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
       animation: {
-        appear: "appear",
+        appear: "appear duration-1000",
       },
     },
   },
