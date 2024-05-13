@@ -1,7 +1,4 @@
 import React from "react";
-import livingImg from "../../images/living-picture.png";
-import diningImg from "../../images/dining-picture.png";
-import bedroomImg from "../../images/bedroom-picture.png";
 
 const BrowseTheRange: React.FC = () => {
   return (
@@ -17,7 +14,11 @@ const BrowseTheRange: React.FC = () => {
       <div className="grid grid-cols-3 gap-[15px]">
         <div>
           <div className="mb-[18px]">
-            <img src={diningImg} alt="dining" className="rounded-[10px]" />
+            <img
+              src="./images/diningImg.svg"
+              alt="dining"
+              className="rounded-[10px]"
+            />
           </div>
           <h3 className="font-semibold text-[#333333] text-[20px] md:text-[24px]">
             Dining
@@ -25,7 +26,11 @@ const BrowseTheRange: React.FC = () => {
         </div>
         <div>
           <div className="mb-[18px]">
-            <img src={livingImg} alt="living" className="rounded-[10px]" />
+            <img
+              src="./images/livingImg.svg"
+              alt="living"
+              className="rounded-[10px]"
+            />
           </div>
           <h3 className="font-semibold text-[#333333] text-[20px] md:text-[24px]">
             Living
@@ -33,7 +38,11 @@ const BrowseTheRange: React.FC = () => {
         </div>
         <div>
           <div className="mb-[18px]">
-            <img src={bedroomImg} alt="bedroom" className="rounded-[10px]" />
+            <img
+              src="./images/bedImg.svg"
+              alt="bedroom"
+              className="rounded-[10px]"
+            />
           </div>
           <h3 className="font-semibold text-[#333333] text-[20px] md:text-[24px]">
             Bedroom

@@ -15,7 +15,7 @@ const OurProducts: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <section className="mt-[40px] flex flex-col mx-[20px] md:mx-[80px] lg:mx-[20px] 2xl:mx-[200px] min-[1800px]:mx-[300px]">
+    <section className="my-[40px] flex flex-col mx-[20px] md:mx-[80px] lg:mx-[20px] 2xl:mx-[200px] min-[1800px]:mx-[300px]">
       <h2 className="font-poppins font-bold text-[32px] md:text-[40px] text-[#3A3A3A] text-center mb-[20px]">
         Our Products
       </h2>

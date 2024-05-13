@@ -211,7 +211,13 @@ const CheckoutForm: React.FC = () => {
                 }}>
                 {stateData &&
                   cityData?.map((element) => {
-                    return <option value={element.name}>{element.name}</option>;
+                    return (
+                      <option
+                        className="hover:bg-customBrown"
+                        value={element.name}>
+                        {element.name}
+                      </option>
+                    );
                   })}
               </select>
             </div>

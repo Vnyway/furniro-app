@@ -47,13 +47,19 @@ const Footer: React.FC = () => {
           </h3>
           <ul className="flex gap-[10px] md:gap-0 md:flex-col  md:space-y-[20px] font-poppins font-medium text-[16px]">
             <li className="hover:text-customGray transition duration-300 ease-in-out">
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+                Home
+              </Link>
             </li>
             <li className="hover:text-customGray transition duration-300 ease-in-out">
-              <Link to="/shop">Shop</Link>
+              <Link to="/shop" onClick={() => window.scrollTo(0, 0)}>
+                Shop
+              </Link>
             </li>
             <li className="hover:text-customGray transition duration-300 ease-in-out">
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -63,13 +69,19 @@ const Footer: React.FC = () => {
           </h3>
           <ul className="flex gap-[10px] md:gap-0 md:flex-col md:space-y-[20px] font-poppins font-medium text-[16px]">
             <li className="hover:text-customGray transition duration-300 ease-in-out">
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart" onClick={() => window.scrollTo(0, 0)}>
+                Cart
+              </Link>
             </li>
             <li className="hover:text-customGray transition duration-300 ease-in-out">
-              <Link to="/checkout">Checkout</Link>
+              <Link to="/checkout" onClick={() => window.scrollTo(0, 0)}>
+                Checkout
+              </Link>
             </li>
             <li className="hover:text-customGray transition duration-300 ease-in-out">
-              <Link to="/comparison">Comparison</Link>
+              <Link to="/comparison" onClick={() => window.scrollTo(0, 0)}>
+                Comparison
+              </Link>
             </li>
           </ul>
         </div>
@@ -96,11 +108,9 @@ const Footer: React.FC = () => {
             />
             <button
               disabled={!isValid}
-              className={`w-[85px] font-poppins font-medium text-[#000000] text-[14px] border-b-[1px] border-b-[#000000] ${
-                isValid
-                  ? "hover:border-customGray hover:text-customGray transition duration-300 ease-in-out cursor-pointer"
-                  : ""
-              }`}>
+              className="w-[85px] font-poppins font-medium text-[#000000] text-[14px] border-b-[1px] border-b-[#000000]
+                   enabled:hover:border-customGray enabled:hover:text-customGray transition duration-300 ease-in-out enabled:hover:cursor-pointer disabled:hover:cursor-not-allowed
+              ">
               SUBSCRIBE
             </button>
           </form>

@@ -3,19 +3,16 @@ import { ICard } from "../../types/types";
 import compareImg from "../../images/card-compare.png";
 import { useActions } from "../../hooks/useActions";
 import { Link } from "react-router-dom";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { motion } from "framer-motion";
 
 interface CardProps {
   card: ICard;
 }
 
 const Card: React.FC<CardProps> = ({ card }) => {
-  const { selectedProduct } = useTypedSelector((state) => state.products);
-
   const { setSelectedProduct, setProductsToCompared } = useActions();
 
   const [over, setOver] = useState<boolean>(false);
-  const [isCompareHovered, setIsComparedHovered] = useState<boolean>(false);
 
   const handleOver = () => {
     setOver(true);
@@ -41,26 +38,26 @@ const Card: React.FC<CardProps> = ({ card }) => {
           window.scrollTo(0, 0);
         }}>
         <button
-          className={`border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] hover:text-white hover:bg-customGray1 py-[8px] px-[30px] md:py-[10px] md:px-[60px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20 transition-all duration-300 ${
+          className={`border-[#000000] border-[1px] bg-[#FFFFFF] text-[#B88E2F] hover:text-white hover:bg-customGray1 py-[8px] px-[30px] md:py-[10px] md:px-[40px] font-poppins text-[12px] md:text-[16px] font-semibold absolute top-[40%] left-[50%] translate-x-[-50%] whitespace-nowrap z-20 transition-all duration-300 ${
             over ? "opacity-100" : "opacity-0"
           }`}>
           Add to cart
         </button>
       </Link>
-      <div
+      <button
         onClick={() => setProductsToCompared(card)}
-        className={`text-[#FFFFFF] font-semibold text-[12px] md:text-[16px] font-poppins absolute top-[55%] left-[50%] z-[50] translate-x-[-50%] flex gap-[2px] items-center group cursor-pointer ${
+        className={`text-[#FFFFFF] font-semibold text-[12px] md:text-[16px] font-poppins absolute top-[55%] left-[50%] z-[50] translate-x-[-50%]  ${
           over ? "opacity-100" : "opacity-0"
         }`}>
-        <img
-          src={compareImg}
-          alt="compare"
-          className="group-hover:scale-105 transition-all ease-in-out duration-300"
-        />
-        <p className="group-hover:scale-105 transition-all ease-in-out duration-300">
-          Compare
-        </p>
-      </div>
+        <motion.div
+          whileHover={{ scale: 1.25 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.3 }}
+          className="flex gap-[2px] items-center">
+          <img src={compareImg} alt="compare" />
+          <p>Compare</p>
+        </motion.div>
+      </button>
       <div className="flex flex-col h-auto w-auto">
         <div
           className="relative h-[160px] md:h-[201px] lg:h-[301px] bg-cover"
