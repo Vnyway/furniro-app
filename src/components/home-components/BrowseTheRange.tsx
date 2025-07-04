@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BrowseTheRange: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const BrowseTheRange: React.FC = () => {
         </span>
       </div>
       <div className="grid grid-cols-3 gap-[15px]">
-        <div>
+        <Link to="/shop">
           <div className="mb-[18px]">
             <img
               src="./images/diningImg.svg"
@@ -23,8 +24,8 @@ const BrowseTheRange: React.FC = () => {
           <h3 className="font-semibold text-[#333333] text-[20px] md:text-[24px]">
             Dining
           </h3>
-        </div>
-        <div>
+        </Link>
+        <Link to="/shop">
           <div className="mb-[18px]">
             <img
               src="./images/livingImg.svg"
@@ -35,8 +36,8 @@ const BrowseTheRange: React.FC = () => {
           <h3 className="font-semibold text-[#333333] text-[20px] md:text-[24px]">
             Living
           </h3>
-        </div>
-        <div>
+        </Link>
+        <Link to="/shop">
           <div className="mb-[18px]">
             <img
               src="./images/bedImg.svg"
@@ -47,7 +48,7 @@ const BrowseTheRange: React.FC = () => {
           <h3 className="font-semibold text-[#333333] text-[20px] md:text-[24px]">
             Bedroom
           </h3>
-        </div>
+        </Link>
       </div>
     </section>
   );
