@@ -13,13 +13,19 @@ const BreadCrumbSmall: React.FC<BreadCrumbSmallProps> = (props) => {
         <div className="flex container mx-auto items-center gap-[20px] md:gap-[30px]">
           <Link
             className="text-customGray1 hover:text-black transition duration-300 ease-in-out font-poppins font-normal text-[14px] md:text-[16px]"
-            to="/">
+            to="/"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             Home
           </Link>
           <img src={insideImg} alt="insideImg" className="w-[6px] md:w-[8px]" />
           <Link
             className="text-customGray1 hover:text-black transition duration-300 ease-in-out font-poppins font-normal text-[14px] md:text-[16px]"
-            to="/shop">
+            to="/shop"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             Shop
           </Link>
           <img src={insideImg} alt="insideImg" className="w-[6px] md:w-[8px]" />

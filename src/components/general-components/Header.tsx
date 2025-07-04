@@ -148,17 +148,29 @@ const Header: React.FC = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-[10px] px-[5px] mt-[20px] pt-[15px] border-t-[1px] border-t-[#D9D9D9] text-black">
-          <Link to="/cart">
+          <Link
+            to="/cart"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white transition duration-300 ease-in-out rounded-[50px] font-poppins font-normal text-[12px]">
               Cart
             </button>
           </Link>
-          <Link to="/checkout">
+          <Link
+            to="/checkout"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white transition duration-300 ease-in-out rounded-[50px] font-poppins font-normal text-[12px]">
               Checkout
             </button>
           </Link>
-          <Link to="/comparison">
+          <Link
+            to="/comparison"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <button className="w-full py-[6px] border-[1px] border-black hover:bg-black hover:text-white transition duration-300 ease-in-out rounded-[50px] font-poppins font-normal text-[12px]">
               Comparison
             </button>
@@ -167,7 +179,11 @@ const Header: React.FC = () => {
       </div>
       <header className="container mx-auto w-full text-nowrap bg-white h-20 text-base 8xl:t4xt-lg">
         <div className="flex py-5 justify-between items-center">
-          <Link to="/">
+          <Link
+            to="/"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <img
               src={logo}
               alt="logo"
@@ -176,13 +192,31 @@ const Header: React.FC = () => {
           </Link>
           <ul className="hidden md:flex space-x-[100px] flex-nowrap">
             <li className="font-poppins font-medium text-[16px] hover:text-customGray1 transition duration-300 ease-in-out">
-              <Link to="/">Home</Link>
+              <Link
+                to="/"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}>
+                Home
+              </Link>
             </li>
             <li className="font-poppins font-medium text-[16px] hover:text-customGray1 transition duration-300 ease-in-out">
-              <Link to="/shop">Shop</Link>
+              <Link
+                to="/shop"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}>
+                Shop
+              </Link>
             </li>
             <li className="font-poppins font-medium text-[16px] hover:text-customGray1 transition duration-300 ease-in-out">
-              <Link to="/contact">Contact</Link>
+              <Link
+                to="/contact"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}>
+                Contact
+              </Link>
             </li>
           </ul>
           <div className="flex space-x-[30px] items-center">
@@ -267,22 +301,38 @@ const Header: React.FC = () => {
               ? "block md:hidden absolute z-40 top-0 left-0 w-[100px] bg-white translate-x-[-200px] ease-in-out duration-300 border-black border-[1px]"
               : "block md:hidden absolute z-40 top-0 left-0 w-[200px] bg-white ease-in-out duration-300 border-black border-[1px]"
           }>
-          <Link to="/">
+          <Link
+            to="/"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <li className="border-b-2 h-[61px] pl-[10px]">
               <img src={logo} className="mt-[20px] ml-2 pb-[31px] w-[150px]" />
             </li>
           </Link>
-          <Link to="/">
+          <Link
+            to="/"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left ">
               Home
             </li>
           </Link>
-          <Link to="/shop">
+          <Link
+            to="/shop"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
               Shop
             </li>
           </Link>
-          <Link to="/contact">
+          <Link
+            to="/contact"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <li className="font-basic hover:text-customGray1 transition-all duration-300 cursor-pointer border-b-2 py-3 pr-20 pl-[20px] text-left">
               Contact
             </li>

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import trashImg from "../../images/trash_cart_img.png";
 import { motion } from "framer-motion";
 import { useActions } from "../../hooks/useActions";
 import { Link } from "react-router-dom";
@@ -111,7 +110,11 @@ const GeneralCart: React.FC = () => {
               {calculateTotalPrice(boughtProducts)}
             </p>
           </div>
-          <Link to="/checkout">
+          <Link
+            to="/checkout"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <button className="hover:bg-black hover:text-[#F9F1E7] transition duration-300 ease-in-out font-normal rounded-[15px] border-black border-[1px] mx-[30px] px-[58px] py-[14px] mt-[30%] mb-[20px]">
               Checkout
             </button>

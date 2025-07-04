@@ -23,7 +23,11 @@ const TopSection: React.FC = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
             tellus, luctus nec ullamcorper mattis.
           </h2>
-          <Link to="/shop">
+          <Link
+            to="/shop"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             <button className="mt-[20px] md:mt-[30px] lg:mt-[50px] px-[30px] py-[10px] md:px-[60px] lg:px-[72px] md:py-[18px] lg:py-[25px] bg-[#B88E2F] border-[1px] border-[#B88E2F] hover:bg-[#FFF3E3] hover:text-[#B88E2F] transition duration-300 ease-in-out text-[#FFFFFF] font-poppins font-semibold md:font-bold text-[12px] md:text-[14px] lg:text-[16px] ">
               BUY NOW
             </button>

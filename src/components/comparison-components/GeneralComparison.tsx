@@ -21,7 +21,11 @@ const GeneralComparison: React.FC = () => {
                 <br />
                 Products
               </h1>
-              <Link to="/shop">
+              <Link
+                to="/shop"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}>
                 <button className="text-black border-b-black hover:text-[#727272] text-[16px] md:text-[20px] border-b-[2px] hover:border-b-[#727272] transition duration-500 ease-in-out mt-[15px]">
                   View More
                 </button>
@@ -107,7 +111,11 @@ const GeneralComparison: React.FC = () => {
             {comparedProducts.map((element) => {
               return (
                 <td className="border-l-[1px] pl-[40px]">
-                  <Link to={`/product/${element.id}`}>
+                  <Link
+                    to={`/product/${element.id}`}
+                    onClick={() => {
+                      window.scrollTo(0, 0);
+                    }}>
                     <button
                       onClick={() => setSelectedProduct(element.id)}
                       className="px-[48px] py-[17px] text-white bg-customBrown border-[1px] border-customBrown hover:text-customBrown hover:bg-white transition duration-300 ease-in-out">

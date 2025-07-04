@@ -13,7 +13,11 @@ const BrowseTheRange: React.FC = () => {
         </span>
       </div>
       <div className="grid grid-cols-3 gap-[15px]">
-        <Link to="/shop">
+        <Link
+          to="/shop"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}>
           <div className="mb-[18px]">
             <img
               src="./images/diningImg.svg"
@@ -25,7 +29,11 @@ const BrowseTheRange: React.FC = () => {
             Dining
           </h3>
         </Link>
-        <Link to="/shop">
+        <Link
+          to="/shop"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}>
           <div className="mb-[18px]">
             <img
               src="./images/livingImg.svg"
@@ -37,7 +45,11 @@ const BrowseTheRange: React.FC = () => {
             Living
           </h3>
         </Link>
-        <Link to="/shop">
+        <Link
+          to="/shop"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}>
           <div className="mb-[18px]">
             <img
               src="./images/bedImg.svg"

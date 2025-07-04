@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { ICard, IUser } from "../../types/types";
+import { IUser } from "../../types/types";
 import {
   City,
   Country,
